@@ -41,3 +41,6 @@ totalização do consumo e valor total da conta (diárias + consumo).
 - Distribuir as classes da aplicação nos pacotes main (inicialização), view, controller, model e persistence;
 
 - Pacotes adicionais independentes podem ser criados para melhor organização do projeto, por exemplo: pacote para classes de exceção – exception – criadas especificamente para a aplicação; pacote para implementação de classes de utilidades – util – para tratamento de dados e serviços auxiliares ao modelo.
+
+![image](https://github.com/fabricioalsil/POO_Hospedaria/assets/87388235/74617f72-1ee6-431b-98be-9f65fe5fcfe9)
+
