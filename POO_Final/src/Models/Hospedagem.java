@@ -94,13 +94,4 @@ public class Hospedagem implements Serializable{
 		return limiteCheckout;
 	}
 
-	
-
-
-	
-	
-	
-	
-	
-	
 }
