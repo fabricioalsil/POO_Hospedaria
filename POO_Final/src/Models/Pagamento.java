@@ -1,9 +1,12 @@
 package Models;
+import java.io.Serializable;
 import java.util.Date;
 
 import Enums.ETipoPagamento;
 
-public class Pagamento {
+public class Pagamento implements Serializable{
+	
+	private static final long serialVersionUID = 1141626869140998524L;
 	
 	private final ETipoPagamento tipo;
 	private final Date data;

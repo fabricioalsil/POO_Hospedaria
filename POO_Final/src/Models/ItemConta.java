@@ -1,7 +1,10 @@
 package Models;
+import java.io.Serializable;
 import java.util.Date;
 
-public class ItemConta {
+public class ItemConta implements Serializable {
+	
+	private static final long serialVersionUID = -1825858051228109959L;
 	
 	private final Date dataHora;
 	private final double preco;

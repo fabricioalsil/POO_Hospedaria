@@ -1,8 +1,13 @@
 package Models;
+import java.io.Serializable;
+
 import Enums.EEstadoOcupacao;
 import Interfaces.IAcomodacao;
 
-public class Acomodacao implements IAcomodacao{
+public class Acomodacao implements IAcomodacao, Serializable {
+	
+	private static final long serialVersionUID = 8480015296174609482L;
+	
 	private final int numero;
 	private final int ocupacaoMax;
 	private EEstadoOcupacao estadoOcupacao;

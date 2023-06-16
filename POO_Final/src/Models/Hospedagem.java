@@ -10,10 +10,10 @@ import Interfaces.IAcomodacao;
 import Interfaces.IConta;
 import Interfaces.IHospede;
 
-//AAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 public class Hospedagem implements Serializable{
 	
 	private static final long serialVersionUID = -8491283020138955700L;
+	
 	private final static int inicioCheckin = 13;
 	private final static int limiteCheckout = 12;
 	private final String id;

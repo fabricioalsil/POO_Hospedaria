@@ -1,9 +1,12 @@
 package Models;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import Interfaces.IConta;
 
-public class Conta implements IConta {
+public class Conta implements IConta, Serializable {
+	
+	private static final long serialVersionUID = 3090048274608081644L;
 	
 	private ArrayList<ItemConta> itens = new ArrayList<>();
 

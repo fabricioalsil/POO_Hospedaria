@@ -1,7 +1,12 @@
 package Models;
+import java.io.Serializable;
+
 import Interfaces.IHospede;
 
-public class Hospede implements IHospede{
+public class Hospede implements IHospede, Serializable {
+	
+	private static final long serialVersionUID = -7355236476749803907L;
+	
 	private final long cpf;
 	private String nome;
 	private String email;
