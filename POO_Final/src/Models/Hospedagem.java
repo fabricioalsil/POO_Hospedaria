@@ -10,7 +10,7 @@ import Interfaces.IAcomodacao;
 import Interfaces.IConta;
 import Interfaces.IHospede;
 
-//AHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+//AAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 public class Hospedagem implements Serializable{
 	
 	private static final long serialVersionUID = -8491283020138955700L;
