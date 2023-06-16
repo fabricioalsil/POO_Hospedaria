@@ -13,12 +13,10 @@ public class Hospede implements IHospede{
 		this.telefone = telefone;
 	}
 	
-	@Override
 	public long getCpf() {
 		return this.cpf;
 	}
 
-	@Override
 	public String getNome() {
 		return this.nome;
 	}
@@ -27,7 +25,6 @@ public class Hospede implements IHospede{
 		this.nome = nome;
 	}
 
-	@Override
 	public String getEmail() {
 		return this.email;
 	}
@@ -35,8 +32,7 @@ public class Hospede implements IHospede{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	@Override
+
 	public long getTelefone() {
 		return this.telefone;
 	}

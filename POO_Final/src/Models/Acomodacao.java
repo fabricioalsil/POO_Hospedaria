@@ -15,12 +15,10 @@ public class Acomodacao implements IAcomodacao{
 		this.tipo = tipo;
 	}
 
-	@Override
 	public int getNumero() {
 		return numero;
 	}
 
-	@Override
 	public int getOcupacaoMaxima() {
 		return ocupacaoMax;
 	}
@@ -29,12 +27,10 @@ public class Acomodacao implements IAcomodacao{
 		return estadoOcupacao;
 	}
 	
-	@Override
 	public void setEstadoOcupacao(EEstadoOcupacao e) {
 		this.estadoOcupacao = e;		
 	}
 	
-	@Override
 	public String getTipo() {
 		return this.tipo.getNome();
 	}
@@ -43,12 +39,10 @@ public class Acomodacao implements IAcomodacao{
 		this.tipo = tipo;
 	}
 
-	@Override
 	public double getTarifaDiaria() {
 		return this.tipo.getTarifaDiaria();
 	}
 
-	@Override
 	public double getAdicionalAcompanhante() {
 		return this.tipo.getAdicionalAcompanhante();
 	}

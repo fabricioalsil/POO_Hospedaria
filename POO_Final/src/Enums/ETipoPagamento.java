@@ -4,7 +4,8 @@ public enum ETipoPagamento {
 	
 	PIX("PIX"),
     DEBITO("Debito"),
-    CREDITO("Credito");
+    CREDITO("Credito"),
+	ESTORNO("Estorno");
 
     private String descricao;
 
