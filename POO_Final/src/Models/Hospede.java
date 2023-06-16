@@ -1,3 +1,5 @@
+package Models;
+import Interfaces.IHospede;
 
 public class Hospede implements IHospede{
 	private final long cpf;
@@ -41,6 +43,10 @@ public class Hospede implements IHospede{
 
 	public void setTelefone(long telefone) {
 		this.telefone = telefone;
+	}
+	
+	public String toString() {
+		return "CPF: " + getCpf() + "   Nome: " + getNome();
 	}
 	
 }

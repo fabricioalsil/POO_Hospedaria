@@ -1,3 +1,4 @@
+package Models;
 
 public class TipoAcomodacao{
 	private final String nome;
@@ -11,11 +12,11 @@ public class TipoAcomodacao{
 	}
 	
 	public String getNome() {
-		return this.nome;
+		return nome;
 	}
 
 	public double getTarifaDiaria() {
-		return this.tarifaDiaria;
+		return tarifaDiaria;
 	}
 
 	public void setTarifaDiaria(double tarifaDiaria) {
@@ -23,7 +24,7 @@ public class TipoAcomodacao{
 	}
 
 	public double getAdicionalAcompanhante() {
-		return this.adicionalAcompanhante;
+		return adicionalAcompanhante;
 	}
 
 	public void setAdicionalAcompanhante(double adicionalAcompanhante) {

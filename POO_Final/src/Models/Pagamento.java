@@ -1,4 +1,7 @@
+package Models;
 import java.util.Date;
+
+import Enums.ETipoPagamento;
 
 public class Pagamento {
 	

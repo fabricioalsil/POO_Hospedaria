@@ -1,3 +1,6 @@
+package Models;
+import Enums.EEstadoOcupacao;
+import Interfaces.IAcomodacao;
 
 public class Acomodacao implements IAcomodacao{
 	private final int numero;
@@ -14,16 +17,16 @@ public class Acomodacao implements IAcomodacao{
 
 	@Override
 	public int getNumero() {
-		return this.numero;
+		return numero;
 	}
 
 	@Override
 	public int getOcupacaoMaxima() {
-		return this.ocupacaoMax;
+		return ocupacaoMax;
 	}
 
 	public EEstadoOcupacao getEstadoOcupacao() {
-		return this.estadoOcupacao;
+		return estadoOcupacao;
 	}
 	
 	@Override
@@ -49,6 +52,7 @@ public class Acomodacao implements IAcomodacao{
 	public double getAdicionalAcompanhante() {
 		return this.tipo.getAdicionalAcompanhante();
 	}
+
 
 	
 	
