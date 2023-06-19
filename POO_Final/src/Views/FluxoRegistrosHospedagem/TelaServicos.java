@@ -1,13 +1,15 @@
-package Views.FluxoCheckin.FluxoCheckout;
+package Views.FluxoRegistrosHospedagem;
 
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.JList;
+import javax.swing.ListSelectionModel;
 import javax.swing.JButton;
 
-public class TelaConfirmacaoCheckout {
+public class TelaServicos {
 
 	private JFrame frame;
 
@@ -18,7 +20,7 @@ public class TelaConfirmacaoCheckout {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaConfirmacaoCheckout window = new TelaConfirmacaoCheckout();
+					TelaServicos window = new TelaServicos();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,7 +32,7 @@ public class TelaConfirmacaoCheckout {
 	/**
 	 * Create the application.
 	 */
-	public TelaConfirmacaoCheckout() {
+	public TelaServicos() {
 		initialize();
 	}
 
@@ -43,14 +45,23 @@ public class TelaConfirmacaoCheckout {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("CHECK-OUT REALIZADO COM SUCESSO!");
+		JLabel lblNewLabel = new JLabel("SERVIÇOS DISPONÍVEIS");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel.setBounds(72, 90, 311, 20);
+		lblNewLabel.setBounds(125, 10, 188, 20);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("Voltar ao Menu");
-		btnNewButton.setBounds(159, 131, 103, 21);
+		JList list = new JList(); //EXIBIR LISTA DE ITENS
+		list.setBounds(196, 116, 1, 1);
+		list.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION); //permite selecionar varias opções
+		frame.getContentPane().add(list);
+		
+		JButton btnNewButton = new JButton("Adicionar");
+		btnNewButton.setBounds(264, 216, 85, 21);
 		frame.getContentPane().add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Cancelar");
+		btnNewButton_1.setBounds(83, 216, 85, 21);
+		frame.getContentPane().add(btnNewButton_1);
 	}
 
 }

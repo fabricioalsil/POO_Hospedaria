@@ -1,4 +1,4 @@
-package Views.FluxoCheckin.FluxoCheckout;
+package Views.FluxoCheckout;
 
 import java.awt.EventQueue;
 
@@ -69,33 +69,33 @@ public class TelaVerificarConta {
 		
 		JLabel lblNewLabel_1 = new JLabel("Adicionar Pagamento:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblNewLabel_1.setBounds(260, 51, 121, 13);
+		lblNewLabel_1.setBounds(260, 45, 121, 13);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("PIX");
-		rdbtnNewRadioButton.setBounds(260, 70, 103, 21);
+		rdbtnNewRadioButton.setBounds(260, 64, 103, 21);
 		frame.getContentPane().add(rdbtnNewRadioButton);
 		
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Crédito");
-		rdbtnNewRadioButton_1.setBounds(260, 93, 103, 21);
+		rdbtnNewRadioButton_1.setBounds(260, 87, 103, 21);
 		frame.getContentPane().add(rdbtnNewRadioButton_1);
 		
 		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Débito");
-		rdbtnNewRadioButton_2.setBounds(260, 116, 103, 21);
+		rdbtnNewRadioButton_2.setBounds(260, 110, 103, 21);
 		frame.getContentPane().add(rdbtnNewRadioButton_2);
 		
 		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("Estorno");
-		rdbtnNewRadioButton_3.setBounds(260, 139, 103, 21);
+		rdbtnNewRadioButton_3.setBounds(260, 133, 103, 21);
 		frame.getContentPane().add(rdbtnNewRadioButton_3);
 		
 		JLabel lblNewLabel_2 = new JLabel("Valor:");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblNewLabel_2.setBounds(258, 179, 45, 13);
+		lblNewLabel_2.setBounds(260, 167, 45, 13);
 		frame.getContentPane().add(lblNewLabel_2);
 		
 		txtR = new JTextField();
 		txtR.setText("0,00");
-		txtR.setBounds(297, 177, 96, 19);
+		txtR.setBounds(296, 167, 114, 19);
 		frame.getContentPane().add(txtR);
 		txtR.setColumns(10);
 		

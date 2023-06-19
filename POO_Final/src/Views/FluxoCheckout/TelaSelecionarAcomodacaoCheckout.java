@@ -1,4 +1,4 @@
-package Views.FluxoCheckin.FluxoCheckout;
+package Views.FluxoCheckout;
 
 import java.awt.EventQueue;
 
