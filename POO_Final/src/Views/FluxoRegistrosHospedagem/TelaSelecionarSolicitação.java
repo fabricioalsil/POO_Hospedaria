@@ -7,10 +7,12 @@ import javax.swing.JRadioButton;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
+import javax.swing.JTextField;
 
 public class TelaSelecionarSolicitação {
 
 	private JFrame frame;
+	private JTextField txtInsiraApenasNmeros;
 
 	/**
 	 * Launch the application.
@@ -44,17 +46,13 @@ public class TelaSelecionarSolicitação {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Solicitar serviço");
-		rdbtnNewRadioButton.setBounds(149, 81, 103, 21);
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("Catálogo de Serviços/Produtos");
+		rdbtnNewRadioButton.setBounds(132, 96, 168, 21);
 		frame.getContentPane().add(rdbtnNewRadioButton);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Registrar consumo");
-		rdbtnNewRadioButton_1.setBounds(149, 104, 124, 21);
+		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Realizar pagamento");
+		rdbtnNewRadioButton_1.setBounds(132, 119, 124, 21);
 		frame.getContentPane().add(rdbtnNewRadioButton_1);
-		
-		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Realizar pagamento");
-		rdbtnNewRadioButton_2.setBounds(149, 127, 124, 21);
-		frame.getContentPane().add(rdbtnNewRadioButton_2);
 		
 		JLabel lblNewLabel = new JLabel("SELECIONAR SOLICITAÇÃO");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -63,16 +61,26 @@ public class TelaSelecionarSolicitação {
 		
 		JLabel lblNewLabel_1 = new JLabel("Escolha a opção desejada:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblNewLabel_1.setBounds(122, 62, 168, 13);
+		lblNewLabel_1.setBounds(132, 77, 168, 13);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		JButton btnNewButton = new JButton("OK");
-		btnNewButton.setBounds(253, 171, 85, 21);
+		btnNewButton.setBounds(252, 211, 85, 21);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Cancelar");
-		btnNewButton_1.setBounds(95, 171, 85, 21);
+		btnNewButton_1.setBounds(95, 211, 85, 21);
 		frame.getContentPane().add(btnNewButton_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Número quarto:");
+		lblNewLabel_2.setBounds(122, 166, 79, 13);
+		frame.getContentPane().add(lblNewLabel_2);
+		
+		txtInsiraApenasNmeros = new JTextField();
+		txtInsiraApenasNmeros.setText("Insira apenas números");
+		txtInsiraApenasNmeros.setBounds(204, 163, 113, 19);
+		frame.getContentPane().add(txtInsiraApenasNmeros);
+		txtInsiraApenasNmeros.setColumns(10);
 	}
 
 }

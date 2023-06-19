@@ -7,10 +7,12 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JList;
 import javax.swing.JButton;
+import javax.swing.JTextField;
 
 public class TelaSelecionarAcomodacaoCheckout {
 
 	private JFrame frame;
+	private JTextField txtInsiraApenasNmeros;
 
 	/**
 	 * Launch the application.
@@ -48,11 +50,7 @@ public class TelaSelecionarAcomodacaoCheckout {
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel.setBounds(73, 20, 304, 20);
 		frame.getContentPane().add(lblNewLabel);
-		
-		JList list = new JList(); //INSERIR A LISTA DE ACOMODAÇÕES OCUPADAS <<<<<<<
-		list.setBounds(151, 89, 1, 1);
-		frame.getContentPane().add(list);
-		
+				
 		JButton btnNewButton = new JButton("Continuar");
 		btnNewButton.setBounds(243, 205, 85, 21);
 		frame.getContentPane().add(btnNewButton);
@@ -60,6 +58,16 @@ public class TelaSelecionarAcomodacaoCheckout {
 		JButton btnNewButton_1 = new JButton("Cancelar");
 		btnNewButton_1.setBounds(97, 205, 85, 21);
 		frame.getContentPane().add(btnNewButton_1);
+		
+		JLabel lblNewLabel_1 = new JLabel("Número quarto:");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNewLabel_1.setBounds(61, 100, 98, 20);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		txtInsiraApenasNmeros = new JTextField();
+		txtInsiraApenasNmeros.setText("Insira apenas números");
+		txtInsiraApenasNmeros.setBounds(153, 102, 129, 19);
+		frame.getContentPane().add(txtInsiraApenasNmeros);
+		txtInsiraApenasNmeros.setColumns(10);
 	}
-
 }

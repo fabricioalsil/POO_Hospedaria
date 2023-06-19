@@ -1,14 +1,15 @@
 package Views.FluxoRegistrosHospedagem;
 
 import java.awt.EventQueue;
-import java.awt.Font;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
 import javax.swing.JList;
+import javax.swing.JButton;
 
-public class TelaSelecionarAcomodacaoPagamento {
+public class TelaConfirmacaoSolicitacao {
 
 	private JFrame frame;
 
@@ -19,7 +20,7 @@ public class TelaSelecionarAcomodacaoPagamento {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaSelecionarAcomodacaoPagamento window = new TelaSelecionarAcomodacaoPagamento();
+					TelaConfirmacaoSolicitacao window = new TelaConfirmacaoSolicitacao();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -31,7 +32,7 @@ public class TelaSelecionarAcomodacaoPagamento {
 	/**
 	 * Create the application.
 	 */
-	public TelaSelecionarAcomodacaoPagamento() {
+	public TelaConfirmacaoSolicitacao() {
 		initialize();
 	}
 
@@ -44,22 +45,14 @@ public class TelaSelecionarAcomodacaoPagamento {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("SELECIONAR ACOMODAÇÃO PAGAMENTO");
+		JLabel lblNewLabel = new JLabel("SOLICITAÇÃO REALIZADA COM SUCESSO!");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel.setBounds(73, 20, 304, 20);
+		lblNewLabel.setBounds(67, 107, 316, 20);
 		frame.getContentPane().add(lblNewLabel);
-		
-		JList list = new JList(); //INSERIR A LISTA DE ACOMODAÇÕES OCUPADAS <<<<<<<
-		list.setBounds(151, 89, 1, 1);
-		frame.getContentPane().add(list);
-		
-		JButton btnNewButton = new JButton("Continuar");
-		btnNewButton.setBounds(243, 205, 85, 21);
+				
+		JButton btnNewButton = new JButton("Voltar ao Menu");
+		btnNewButton.setBounds(158, 137, 111, 21);
 		frame.getContentPane().add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("Cancelar");
-		btnNewButton_1.setBounds(97, 205, 85, 21);
-		frame.getContentPane().add(btnNewButton_1);
 	}
 
 }

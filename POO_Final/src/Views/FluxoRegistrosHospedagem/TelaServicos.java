@@ -49,19 +49,22 @@ public class TelaServicos {
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel.setBounds(125, 10, 188, 20);
 		frame.getContentPane().add(lblNewLabel);
-		
-		JList list = new JList(); //EXIBIR LISTA DE ITENS
-		list.setBounds(196, 116, 1, 1);
-		list.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION); //permite selecionar varias opções
-		frame.getContentPane().add(list);
-		
+				
 		JButton btnNewButton = new JButton("Adicionar");
-		btnNewButton.setBounds(264, 216, 85, 21);
+		btnNewButton.setBounds(188, 216, 85, 21);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Cancelar");
-		btnNewButton_1.setBounds(83, 216, 85, 21);
+		btnNewButton_1.setBounds(67, 216, 85, 21);
 		frame.getContentPane().add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Finalizar");
+		btnNewButton_2.setBounds(311, 216, 85, 21);
+		frame.getContentPane().add(btnNewButton_2);
+		
+		JList list = new JList(); //INSERIR LISTA DE ITENS
+		list.setBounds(188, 92, 1, 1);
+		frame.getContentPane().add(list);
 	}
 
 }
