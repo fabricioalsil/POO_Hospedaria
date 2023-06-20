@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.io.Serializable;
+
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JScrollBar;
@@ -12,8 +14,9 @@ import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-public class TelaVerificarConta {
+public class TelaVerificarConta implements Serializable {
 
+	private static final long serialVersionUID = 783922877834338726L;
 	private JFrame frame;
 	private JTable table;
 	private JTextField txtR;

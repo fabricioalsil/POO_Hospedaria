@@ -2,14 +2,16 @@ package Views.FluxoControleInterno;
 
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.io.Serializable;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 
-public class TelaAcomodacao {
+public class TelaAcomodacao implements Serializable {
 
+	private static final long serialVersionUID = -4452157912299253610L;
 	private JFrame frame;
 
 	/**

@@ -5,12 +5,15 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.io.Serializable;
+
 import javax.swing.JTextField;
 import javax.swing.JList;
 import javax.swing.JButton;
 
-public class TelaConfirmacaoSolicitacao {
+public class TelaConfirmacaoSolicitacao implements Serializable {
 
+	private static final long serialVersionUID = -5834271566170065824L;
 	private JFrame frame;
 
 	/**

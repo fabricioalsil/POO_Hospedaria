@@ -25,15 +25,8 @@ public class Categoria implements Serializable{
 		return nome;
 	}
 	
-	public StringBuilder listar() {
+	public ArrayList<Item> getItens() {
 		
-		StringBuilder sb = new StringBuilder();
-
-		for (Item item : itens) {
-			sb.append(item.getDescricao());
-			sb.append("\n");
-		}
-		
-		return sb;
+		return itens;
 	}
 }

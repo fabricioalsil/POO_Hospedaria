@@ -5,11 +5,14 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.io.Serializable;
+
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
 
-public class TelaControleInterno {
+public class TelaControleInterno implements Serializable {
 
+	private static final long serialVersionUID = -961149028706264736L;
 	private JFrame frame;
 
 	/**

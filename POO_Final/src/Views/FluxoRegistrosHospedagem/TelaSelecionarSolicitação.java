@@ -6,11 +6,14 @@ import javax.swing.JFrame;
 import javax.swing.JRadioButton;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.io.Serializable;
+
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
-public class TelaSelecionarSolicitação {
+public class TelaSelecionarSolicitação implements Serializable {
 
+	private static final long serialVersionUID = 7116332691622616441L;
 	private JFrame frame;
 	private JTextField txtInsiraApenasNmeros;
 

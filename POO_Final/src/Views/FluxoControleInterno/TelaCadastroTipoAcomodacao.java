@@ -2,6 +2,7 @@ package Views.FluxoControleInterno;
 
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.io.Serializable;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,8 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class TelaCadastroTipoAcomodacao {
+public class TelaCadastroTipoAcomodacao implements Serializable {
 
+	private static final long serialVersionUID = 6566570562715538878L;
 	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;

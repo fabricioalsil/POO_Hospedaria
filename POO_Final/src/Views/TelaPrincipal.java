@@ -6,12 +6,15 @@ import javax.swing.JFrame;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import java.awt.Font;
 
-public class TelaPrincipal {
+public class TelaPrincipal implements Serializable {
 
+	private static final long serialVersionUID = 3455281041763317742L;
+	
 	private JFrame frame;
 
 	public static void main(String[] args) {

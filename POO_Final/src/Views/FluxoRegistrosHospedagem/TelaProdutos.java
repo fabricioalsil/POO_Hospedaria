@@ -5,13 +5,16 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.io.Serializable;
+
 import javax.swing.JList;
 import javax.swing.ListSelectionModel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
-public class TelaProdutos {
+public class TelaProdutos implements Serializable {
 
+	private static final long serialVersionUID = -1989051228745031504L;
 	private JFrame frame;
 	private JTextField textField;
 

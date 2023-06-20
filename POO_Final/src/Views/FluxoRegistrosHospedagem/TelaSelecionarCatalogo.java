@@ -5,13 +5,16 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.io.Serializable;
+
 import javax.swing.JTextArea;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import javax.swing.JList;
 
-public class TelaSelecionarCatalogo {
+public class TelaSelecionarCatalogo implements Serializable {
 
+	private static final long serialVersionUID = -2128866272667041474L;
 	private JFrame frame;
 
 	/**

@@ -5,10 +5,13 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.io.Serializable;
+
 import javax.swing.JButton;
 
-public class TelaConfirmacaoCheckout {
+public class TelaConfirmacaoCheckout implements Serializable {
 
+	private static final long serialVersionUID = -592348124319785218L;
 	private JFrame frame;
 
 	/**

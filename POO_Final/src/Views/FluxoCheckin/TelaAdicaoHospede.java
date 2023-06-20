@@ -5,11 +5,14 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.io.Serializable;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-public class TelaAdicaoHospede {
+public class TelaAdicaoHospede implements Serializable {
 
+	private static final long serialVersionUID = 4641340598900527116L;
 	private JFrame frame;
 	private JTextField txtInsiraApenasNmeros;
 	private JTextField txtInsiraONome;

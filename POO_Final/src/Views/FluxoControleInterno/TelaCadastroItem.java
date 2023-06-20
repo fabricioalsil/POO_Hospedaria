@@ -5,12 +5,15 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.io.Serializable;
+
 import javax.swing.JTextField;
 import javax.swing.JList;
 import javax.swing.JButton;
 
-public class TelaCadastroItem {
+public class TelaCadastroItem implements Serializable {
 
+	private static final long serialVersionUID = -1845066834468929705L;
 	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;

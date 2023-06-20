@@ -6,13 +6,22 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
+
+import controller.CatalogoController;
+import controller.MainController;
+
 import javax.swing.JButton;
 import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.io.Serializable;
+import java.awt.event.ActionEvent;
 
-public class TelaCadastroCategoria {
+public class TelaCadastroCategoria implements Serializable {
 
+	private static final long serialVersionUID = -6042173958072169649L;
 	private JFrame frame;
 	private JTextField textField;
+	private JTextArea textArea;
 
 	/**
 	 * Launch the application.
@@ -62,6 +71,11 @@ public class TelaCadastroCategoria {
 		textField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Cadastrar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				actionCadastrar();
+			}
+		});
 		btnNewButton.setBounds(313, 45, 85, 21);
 		frame.getContentPane().add(btnNewButton);
 		
@@ -70,11 +84,40 @@ public class TelaCadastroCategoria {
 		frame.getContentPane().add(textArea);
 		
 		JButton btnNewButton_1 = new JButton("Listar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				actionListar();
+			}
+		});
 		btnNewButton_1.setBounds(313, 87, 85, 21);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Voltar ao Menu");
 		btnNewButton_2.setBounds(313, 219, 113, 21);
 		frame.getContentPane().add(btnNewButton_2);
+	}
+	
+	private void actionCadastrar () {
+
+		CatalogoController controller = MainController.getCatalogoController();
+
+		String nome = textField.getText();
+
+		controller.addCategoria(nome);
+		
+		limparForm();
+	}
+	
+	private void actionListar() {
+		CatalogoController controller = MainController.getCatalogoController();
+
+		textArea.setText(null);
+		for (String nomeCategoria : controller.getCategorias()) {
+			textArea.append(String.format("%s\n", nomeCategoria));
+		}
+	}
+	
+	private void limparForm() {
+		textField.setText("");
 	}
 }
