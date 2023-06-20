@@ -14,8 +14,11 @@ public class Hospedagem implements Serializable{
 	
 	private static final long serialVersionUID = -8491283020138955700L;
 	
-	private final static int inicioCheckin = 13;
-	private final static int limiteCheckout = 12;
+	//constantes
+	private final static int INICIO_CHECKIN = 13;
+	private final static int LIMITE_CHECKOUT = 12;
+	
+	//variaveis
 	private final String id;
 	private final Date dataCheckin;
 	private Date dataCheckout;
@@ -87,11 +90,11 @@ public class Hospedagem implements Serializable{
 	}
 
 	public static int getIniciocheckin() {
-		return inicioCheckin;
+		return INICIO_CHECKIN;
 	}
 
 	public static int getLimitecheckout() {
-		return limiteCheckout;
+		return LIMITE_CHECKOUT;
 	}
 
 }
