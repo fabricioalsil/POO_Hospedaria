@@ -83,6 +83,11 @@ public class Hospedagem implements Serializable{
 	public String getId() {
 		return id;
 	}
+	
+	//Checkout
+	public void checkout() {
+		
+	}
 
 	//Métodos da classe
 	public static long getSerialversionuid() {
