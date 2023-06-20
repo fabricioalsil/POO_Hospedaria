@@ -49,7 +49,7 @@ public class TelaPrincipal {
 		rdbtnNewRadioButton_2.setBounds(136, 122, 141, 21);
 		frame.getContentPane().add(rdbtnNewRadioButton_2);
 		
-		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("Serviços Internos");
+		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("Controle Interno");
 		rdbtnNewRadioButton_3.setBounds(136, 145, 141, 21);
 		frame.getContentPane().add(rdbtnNewRadioButton_3);
 		
