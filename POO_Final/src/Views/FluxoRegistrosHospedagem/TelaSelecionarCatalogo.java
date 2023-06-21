@@ -9,15 +9,18 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JRadioButton;
 
+import models.Hospedagem;
+
 public class TelaSelecionarCatalogo extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = -2128866272667041474L;
-	//private JFrame frame;
+	private Hospedagem hospedagem;
 
 	/**
 	 * Create the application.
 	 */
-	public TelaSelecionarCatalogo() {
+	public TelaSelecionarCatalogo(Hospedagem hospedagem) {
+		this.hospedagem = hospedagem;
 		initialize();
 	}
 

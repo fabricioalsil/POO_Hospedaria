@@ -21,7 +21,7 @@ public class Hospedagem implements Serializable{
 	//variaveis
 	private final String id;
 	private final Date dataCheckin;
-	private Date dataCheckout;
+	private Date dataCheckout = null;
 	private IHospede hospede;
 	private ArrayList<IHospede> acompanhantes = new ArrayList<>();
 	private IAcomodacao quarto;

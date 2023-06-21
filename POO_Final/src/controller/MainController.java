@@ -12,11 +12,13 @@ public class MainController implements Serializable {
 
 	private CatalogoController catalogoController;
 	private AcomodacaoController acomodacaoController;
+	private HospedagemController hospedagemController;
 	
 	private MainController() {
 		
 		catalogoController = new CatalogoController();
 		acomodacaoController = new AcomodacaoController();
+		hospedagemController = new HospedagemController();
 				
 	}
 	
@@ -43,5 +45,9 @@ public class MainController implements Serializable {
 	
 	public static AcomodacaoController getAcomodacaoController() {
 		return instance.acomodacaoController;
+	}
+	
+	public static HospedagemController getHospedagemController() {
+		return instance.hospedagemController;
 	}
 }

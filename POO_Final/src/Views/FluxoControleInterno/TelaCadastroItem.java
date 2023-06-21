@@ -20,7 +20,7 @@ import enums.ETipoItem;
 public class TelaCadastroItem extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = -1845066834468929705L;
-	//private JFrame frame;
+	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -39,7 +39,7 @@ public class TelaCadastroItem extends JFrame implements Serializable {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		//frame = new JFrame();
+		frame = this;
 		this.setBounds(100, 100, 450, 300);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.getContentPane().setLayout(null);
@@ -149,7 +149,7 @@ public class TelaCadastroItem extends JFrame implements Serializable {
         	
         } catch(NullPointerException e) {
         	JOptionPane.showMessageDialog(this, "Erro: É necessário cadastrar uma categoria primeiro", "Erro ao cadastrar", JOptionPane.ERROR_MESSAGE);
-        	
+        	frame.dispose();
         }catch (Exception e) {
 			e.printStackTrace();
 			

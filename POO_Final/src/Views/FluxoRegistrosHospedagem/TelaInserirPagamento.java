@@ -10,16 +10,19 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import models.Hospedagem;
+
 public class TelaInserirPagamento extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 6259099661714699281L;
-	//private JFrame frame;
+	Hospedagem hospedagem;
 	private JTextField txtR;
 
 	/**
 	 * Create the application.
 	 */
-	public TelaInserirPagamento() {
+	public TelaInserirPagamento(Hospedagem hospedagem) {
+		this.hospedagem = hospedagem;
 		initialize();
 	}
 
