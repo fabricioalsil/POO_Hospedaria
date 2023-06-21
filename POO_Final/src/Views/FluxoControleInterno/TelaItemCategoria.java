@@ -8,11 +8,15 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaItemCategoria extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 6466918186141237190L;
 	private JFrame frame;
+	private JRadioButton rdbtnNewRadioButton;
+	private JRadioButton rdbtnNewRadioButton_1;
 
 	/**
 	 * Launch the application.
@@ -56,21 +60,52 @@ public class TelaItemCategoria extends JFrame implements Serializable {
 		lblNewLabel_1.setBounds(130, 58, 132, 20);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Cadastrar Item");
-		rdbtnNewRadioButton.setBounds(130, 84, 103, 21);
+		rdbtnNewRadioButton = new JRadioButton("Cadastrar Item");
+		rdbtnNewRadioButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(rdbtnNewRadioButton.isSelected()) {
+					rdbtnNewRadioButton_1.setSelected(false);
+				}
+			}
+		});
+		rdbtnNewRadioButton.setBounds(130, 84, 172, 21);
 		frame.getContentPane().add(rdbtnNewRadioButton);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Cadastrar Categoria");
-		rdbtnNewRadioButton_1.setBounds(130, 107, 132, 21);
+		rdbtnNewRadioButton_1 = new JRadioButton("Cadastrar Categoria");
+		if(rdbtnNewRadioButton_1.isSelected()) {
+			rdbtnNewRadioButton.setSelected(false);
+		}
+		rdbtnNewRadioButton_1.setBounds(130, 107, 172, 21);
 		frame.getContentPane().add(rdbtnNewRadioButton_1);
 		
 		JButton btnNewButton = new JButton("Continuar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				actionContinuar();
+			}
+		});
 		btnNewButton.setBounds(236, 154, 85, 21);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Cancelar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+			}
+		});
 		btnNewButton_1.setBounds(87, 154, 85, 21);
 		frame.getContentPane().add(btnNewButton_1);
 	}
-
+	
+	private void actionContinuar() {
+		if(rdbtnNewRadioButton.isSelected()) {
+			TelaCadastroItem telaCadastroItem = new TelaCadastroItem();
+			telaCadastroItem.setVisible(true);
+			frame.dispose();
+		}else if(rdbtnNewRadioButton_1.isSelected()) {
+			TelaCadastroCategoria telaCadastroCategoria = new TelaCadastroCategoria();
+			telaCadastroCategoria.setVisible(true);
+			frame.dispose();
+		}
+	}
 }

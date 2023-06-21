@@ -2,13 +2,19 @@ package Views.FluxoControleInterno;
 
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.Serializable;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
+import controller.AcomodacaoController;
+import controller.MainController;
 
 public class TelaCadastroTipoAcomodacao extends JFrame implements Serializable {
 
@@ -17,6 +23,7 @@ public class TelaCadastroTipoAcomodacao extends JFrame implements Serializable {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
+	private JTextArea textArea;
 
 	/**
 	 * Launch the application.
@@ -66,14 +73,26 @@ public class TelaCadastroTipoAcomodacao extends JFrame implements Serializable {
 		textField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Cadastrar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				actionCadastrar();
+			}
+		});
+		
 		btnNewButton.setBounds(302, 81, 85, 21);
 		frame.getContentPane().add(btnNewButton);
 		
-		JTextArea textArea = new JTextArea();
+		textArea = new JTextArea();
 		textArea.setBounds(27, 121, 255, 119);
 		frame.getContentPane().add(textArea);
 		
 		JButton btnNewButton_1 = new JButton("Listar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				actionListar();
+			}
+		});
+		
 		btnNewButton_1.setBounds(302, 123, 85, 21);
 		frame.getContentPane().add(btnNewButton_1);
 		
@@ -100,8 +119,41 @@ public class TelaCadastroTipoAcomodacao extends JFrame implements Serializable {
 		textField_2.setColumns(10);
 		
 		JButton btnNewButton_2 = new JButton("Voltar ao Menu");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+			}
+		});
 		btnNewButton_2.setBounds(302, 219, 103, 21);
 		frame.getContentPane().add(btnNewButton_2);
 	}
+	
+	private void actionCadastrar() {
+		AcomodacaoController controller = MainController.getAcomodacaoController();
+		
+		try {
+			String nome = textField.getText();
+			String diaria = textField_1.getText();
+			String acompanhante = textField_2.getText();
+			
+			controller.addTipoAcomodacao(nome, diaria, acompanhante);
+			JOptionPane.showMessageDialog(frame, "Tipo de acomodacao cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+			
+		}catch(NumberFormatException e){
+			JOptionPane.showMessageDialog(frame, "Erro: " + e.getMessage(), "Erro ao cadastrar", JOptionPane.ERROR_MESSAGE);
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 
+	private void actionListar() {
+		AcomodacaoController controller = MainController.getAcomodacaoController();
+
+		textArea.setText(null);
+		for (String nomeTipo : controller.getTipoAcomodacao()) {
+			textArea.append(String.format("%s\n", nomeTipo));
+		}
+	}
 }
