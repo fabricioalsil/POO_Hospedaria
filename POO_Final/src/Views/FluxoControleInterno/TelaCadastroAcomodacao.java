@@ -127,20 +127,16 @@ public class TelaCadastroAcomodacao extends JFrame implements Serializable {
 		
 		AcomodacaoController controller = MainController.getAcomodacaoController();
 		
+		String numero = txtInsiraApenasNmeros.getText();
+		String ocupacao = txtInsiraApenasNmeros.getText();
+		String tipo = (String) comboBox.getSelectedItem();
+		
 		try {
-			int numero = Integer.parseInt(txtInsiraApenasNmeros.getText());
+			controller.addAcomodacao(numero, ocupacao, tipo);
+			JOptionPane.showMessageDialog(frame, "Acomodacao cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 			
-			try {
-				int ocupacao = Integer.parseInt(txtInsiraApenasNmeros.getText());
-				String tipo = (String) comboBox.getSelectedItem();
-				controller.addAcomodacao(numero, ocupacao, tipo);
-				JOptionPane.showMessageDialog(frame, "Cadastrado com sucesso");
-				
-			} catch (NumberFormatException ex) {
-				JOptionPane.showMessageDialog(frame, "Valor inválido para a ocupacao maxima! Certifique-se de fornecer um valor numérico válido.", "Erro", JOptionPane.ERROR_MESSAGE);
-			}
-		} catch (NumberFormatException ex) {
-			JOptionPane.showMessageDialog(frame, "Valor inválido para o numero da acomodacao! Certifique-se de fornecer um valor numérico válido.", "Erro", JOptionPane.ERROR_MESSAGE);
-		}		
+		} catch (NumberFormatException e) {
+			JOptionPane.showMessageDialog(frame, "Erro: " + e.getMessage(), "Erro ao cadastrar", JOptionPane.ERROR_MESSAGE);
+		}			
 	}
 }

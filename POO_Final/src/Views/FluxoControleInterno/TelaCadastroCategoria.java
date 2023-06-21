@@ -1,20 +1,20 @@
 package Views.FluxoControleInterno;
 
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.Serializable;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Font;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import controller.CatalogoController;
 import controller.MainController;
-
-import javax.swing.JButton;
-import javax.swing.JTextArea;
-import java.awt.event.ActionListener;
-import java.io.Serializable;
-import java.awt.event.ActionEvent;
 
 public class TelaCadastroCategoria extends JFrame implements Serializable {
 
@@ -109,6 +109,7 @@ public class TelaCadastroCategoria extends JFrame implements Serializable {
 		String nome = textField.getText();
 
 		controller.addCategoria(nome);
+		JOptionPane.showMessageDialog(frame, "Categoria cadastrada com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 		
 		limparForm();
 	}

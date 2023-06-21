@@ -5,6 +5,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
+import javax.swing.JOptionPane;
+
 import Enums.EEstadoOcupacao;
 import Models.Acomodacao;
 import Models.TipoAcomodacao;
@@ -21,13 +23,26 @@ public class AcomodacaoController implements Serializable {
 		acomodacao = new TreeMap<>();
 	}
 	
-	public void addAcomodacao(int numero, int ocupacaoMax, String nomeTipo) {
+	public void addAcomodacao (String numeroString, String ocupacaoMaxString, String nomeTipoString) throws NumberFormatException {
 		
-		TipoAcomodacao tipo = tipoAcomodacao.get(nomeTipo);
+		TipoAcomodacao tipo = tipoAcomodacao.get(nomeTipoString);
 		
-		Acomodacao newAcomodacao = new Acomodacao(numero, ocupacaoMax, EEstadoOcupacao.DISPONIVEL, tipo);
-		acomodacao.put(newAcomodacao.getNumero(), newAcomodacao);
+		try {
+			int numero = Integer.parseInt(numeroString);
+			
+			try {	
+				int ocupacaoMax = Integer.parseInt(ocupacaoMaxString);
+				Acomodacao newAcomodacao = new Acomodacao(numero, ocupacaoMax, EEstadoOcupacao.DISPONIVEL, tipo);
+				acomodacao.put(newAcomodacao.getNumero(), newAcomodacao);
+								
+			} catch (NumberFormatException e) {
+				throw new NumberFormatException("O numero de ocupacao maxima digitado nao e um numero valido.");
+			}
+		} catch (NumberFormatException e) {
+			throw new NumberFormatException("O numero da acomodacao digitado nao e um numero valido.");
+		}
 		
+		MainController.save();		
 	}
 	
 	public Set<String> getTipoAcomodacao(){

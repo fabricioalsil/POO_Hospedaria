@@ -1,11 +1,16 @@
 package controller;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+
+import javax.swing.JOptionPane;
 
 import Enums.ETipoItem;
 import Models.Categoria;
@@ -25,25 +30,42 @@ public class CatalogoController implements Serializable {
 	}
 
 	public void addCategoria(String nome) {
-
-		categorias.put(nome, new Categoria(nome));	// insere novo objeto categoria no map categorias
-		MainController.save();
+		if(categorias.get(nome) == null) {
+			categorias.put(nome, new Categoria(nome));	// insere novo objeto categoria no map categorias
+			MainController.save();
+		}
 	}
 
 	public Set<String> getCategorias() {
 		return categorias.keySet();	 // retorna lista das chaves do map categorias
 	}
 
-	public void addItem(String nomeCategoria, ETipoItem tipo, long codigo, String descricao, double preco) {
+	public void addItem(String nomeCategoria, ETipoItem tipo, String codigoString, String descricao, String precoString) throws NumberFormatException, Exception {
 
 		Categoria categoria = categorias.get(nomeCategoria);  // retorna objeto Categoria para chave do map
 
-		Item item = new Item(codigo, tipo, descricao, preco);
-
-		itens.put(item.getCodigo(), item);
-
-		if (categoria != null)
-			categoria.addItem(item);
+		try {
+            long codigo = Long.parseLong(codigoString);
+            
+            try {
+                double preco = Double.parseDouble(precoString); 
+                
+                //Formata o valor para 0.00
+                DecimalFormat decimalFormat = new DecimalFormat("0.00");
+                String valorFormatado = decimalFormat.format(preco);
+                NumberFormat numberFormat = NumberFormat.getInstance();
+                double valorFormatadoDouble = numberFormat.parse(valorFormatado).doubleValue();
+                
+                Item item = new Item(codigo, tipo, descricao, valorFormatadoDouble);
+                itens.put(item.getCodigo(), item);
+        		categoria.addItem(item);
+                                
+            } catch (NumberFormatException e) {
+            	throw new NumberFormatException("O preco digitado nao e um valor valido.");
+            }
+        } catch (NumberFormatException e) {
+        	throw new NumberFormatException("O codigo digitado nao e um numero valido.");
+        }
 
 		MainController.save();
 	}

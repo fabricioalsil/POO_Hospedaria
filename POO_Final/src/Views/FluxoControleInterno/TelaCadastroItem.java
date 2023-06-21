@@ -147,23 +147,21 @@ public class TelaCadastroItem extends JFrame implements Serializable {
 		CatalogoController controller = MainController.getCatalogoController();
 		      
         try {
-            // Coleta dos valores
         	ETipoItem tipo = (ETipoItem) comboBox.getSelectedItem();
             String categoria = (String) comboBox_1.getSelectedItem();
-            long codigo = Long.parseLong(textField.getText());
+            String codigo = textField.getText();
             String descricao = textField_1.getText();
+            String preco = textField_2.getText();
             
-            try {
-                double preco = Double.parseDouble(textField_2.getText());
-                controller.addItem(categoria, tipo, codigo, descricao, preco);
-                JOptionPane.showMessageDialog(frame, "Cadastrado com sucesso");
-                
-	            } catch (NumberFormatException ex) {
-	                JOptionPane.showMessageDialog(frame, "Valor inválido para o preco! Certifique-se de fornecer um valor numérico válido.", "Erro", JOptionPane.ERROR_MESSAGE);
-	            }
+            controller.addItem(categoria, tipo, codigo, descricao, preco);
+            JOptionPane.showMessageDialog(frame, "Item cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 	
-	        } catch (NumberFormatException ex) {
-	            JOptionPane.showMessageDialog(frame, "Valor inválido para o codigo Certifique-se de fornecer um valor numérico inteiro.", "Erro", JOptionPane.ERROR_MESSAGE);
-	        }		
+        } catch (NumberFormatException e) {
+        	JOptionPane.showMessageDialog(frame, "Erro: " + e.getMessage(), "Erro ao cadastrar", JOptionPane.ERROR_MESSAGE);
+        
+        } catch (Exception e) {
+			e.printStackTrace();
+			
+		}		
 	}
 }
