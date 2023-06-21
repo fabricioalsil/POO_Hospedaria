@@ -11,7 +11,7 @@ import javax.swing.JList;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
-public class TelaSelecionarAcomodacaoCheckout implements Serializable {
+public class TelaSelecionarAcomodacaoCheckout extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 6756937045640783143L;
 	private JFrame frame;

@@ -10,7 +10,7 @@ import java.io.Serializable;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
 
-public class TelaControleInterno implements Serializable {
+public class TelaControleInterno extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = -961149028706264736L;
 	private JFrame frame;

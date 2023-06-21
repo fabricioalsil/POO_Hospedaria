@@ -11,7 +11,7 @@ import java.io.Serializable;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
-public class TelaSelecionarSolicitação implements Serializable {
+public class TelaSelecionarSolicitação extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 7116332691622616441L;
 	private JFrame frame;

@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 import javax.swing.JButton;
 
-public class TelaConfirmacaoCheckout implements Serializable {
+public class TelaConfirmacaoCheckout extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = -592348124319785218L;
 	private JFrame frame;

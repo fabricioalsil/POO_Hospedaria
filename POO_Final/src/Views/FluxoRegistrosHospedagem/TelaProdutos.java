@@ -12,7 +12,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
-public class TelaProdutos implements Serializable {
+public class TelaProdutos extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = -1989051228745031504L;
 	private JFrame frame;

@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
+import Enums.ETipoItem;
 import Models.Categoria;
 import Models.Item;
 
@@ -33,11 +34,11 @@ public class CatalogoController implements Serializable {
 		return categorias.keySet();	 // retorna lista das chaves do map categorias
 	}
 
-	public void addItem(String nomeCategoria, int codigo, String descricao, double preco) {
+	public void addItem(String nomeCategoria, ETipoItem tipo, long codigo, String descricao, double preco) {
 
 		Categoria categoria = categorias.get(nomeCategoria);  // retorna objeto Categoria para chave do map
 
-		Item item = new Item(codigo, descricao, preco);
+		Item item = new Item(codigo, tipo, descricao, preco);
 
 		itens.put(item.getCodigo(), item);
 

@@ -10,7 +10,7 @@ import java.io.Serializable;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-public class TelaAdicaoHospede implements Serializable {
+public class TelaAdicaoHospede extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 4641340598900527116L;
 	private JFrame frame;

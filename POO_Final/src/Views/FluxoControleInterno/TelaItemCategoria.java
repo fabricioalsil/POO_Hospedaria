@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 
-public class TelaItemCategoria implements Serializable {
+public class TelaItemCategoria extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 6466918186141237190L;
 	private JFrame frame;

@@ -11,6 +11,7 @@ public class MainController implements Serializable {
 	private static MainController instance;
 
 	private CatalogoController catalogoController;
+	private AcomodacaoController acomodacaoController;
 	
 	public static MainController getInstance() {
 		return instance;
@@ -33,4 +34,7 @@ public class MainController implements Serializable {
 		return instance.catalogoController;
 	}
 	
+	public static AcomodacaoController getAcomodacaoController() {
+		return instance.acomodacaoController;
+	}
 }

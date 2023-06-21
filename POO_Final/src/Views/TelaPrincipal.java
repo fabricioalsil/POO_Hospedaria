@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import java.awt.Font;
 
-public class TelaPrincipal implements Serializable {
+public class TelaPrincipal extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 3455281041763317742L;
 	

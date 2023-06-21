@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class TelaCadastroTipoAcomodacao implements Serializable {
+public class TelaCadastroTipoAcomodacao extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 6566570562715538878L;
 	private JFrame frame;

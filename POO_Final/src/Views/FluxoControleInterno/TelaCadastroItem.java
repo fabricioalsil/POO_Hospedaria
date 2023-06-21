@@ -1,23 +1,34 @@
 package Views.FluxoControleInterno;
 
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.Serializable;
+import java.text.DecimalFormat;
+import java.util.Vector;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Font;
-import java.io.Serializable;
-
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.JList;
-import javax.swing.JButton;
 
-public class TelaCadastroItem implements Serializable {
+import Enums.ETipoItem;
+import controller.CatalogoController;
+import controller.MainController;
+
+public class TelaCadastroItem extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = -1845066834468929705L;
 	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
+	
+	JComboBox<ETipoItem> comboBox;
+	JComboBox<String> comboBox_1;
 
 	/**
 	 * Launch the application.
@@ -85,15 +96,7 @@ public class TelaCadastroItem implements Serializable {
 		textField.setBounds(171, 74, 96, 19);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
-		
-		JList list = new JList(); //INSERIR LISTA TIPO (SERVIÇO OU PRODUTO) <<<
-		list.setBounds(171, 99, 1, 1);
-		frame.getContentPane().add(list);
-		
-		JList list_1 = new JList(); //INSERIR LISTA CATEGORIAS <<<
-		list_1.setBounds(171, 122, 1, 1);
-		frame.getContentPane().add(list_1);
-		
+				
 		textField_1 = new JTextField();
 		textField_1.setBounds(171, 143, 96, 19);
 		frame.getContentPane().add(textField_1);
@@ -106,11 +109,61 @@ public class TelaCadastroItem implements Serializable {
 		textField_2.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Cadastrar");
-		btnNewButton.setBounds(232, 215, 85, 21);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				actionCadastrar();
+			}
+		});
+		
+		btnNewButton.setBounds(232, 215, 120, 21);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Voltar ao Menu");
-		btnNewButton_1.setBounds(90, 215, 103, 21);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+			}
+		});
+		btnNewButton_1.setBounds(73, 215, 120, 21);
 		frame.getContentPane().add(btnNewButton_1);
+		
+		initJComboBox();
+		
+	}
+	
+	private void initJComboBox() {
+		CatalogoController controller = MainController.getCatalogoController();
+		
+		comboBox = new JComboBox<ETipoItem>(ETipoItem.values()); //INSERIR LISTA TIPO (SERVIÇO OU PRODUTO) <<<
+		comboBox.setBounds(171, 96, 96, 21);
+		frame.getContentPane().add(comboBox);
+		
+		comboBox_1 = new JComboBox<String>(new Vector<String>(controller.getCategorias())); //INSERIR LISTA CATEGORIAS <<<
+		comboBox_1.setBounds(171, 119, 96, 21);
+		frame.getContentPane().add(comboBox_1);
+	}
+	
+	private void actionCadastrar() {
+		CatalogoController controller = MainController.getCatalogoController();
+		      
+        try {
+            // Coleta dos valores
+        	ETipoItem tipo = (ETipoItem) comboBox.getSelectedItem();
+            String categoria = (String) comboBox_1.getSelectedItem();
+            long codigo = Long.parseLong(textField.getText());
+            String descricao = textField_1.getText();
+            
+            try {
+                double preco = Double.parseDouble(textField_2.getText());
+                controller.addItem(categoria, tipo, codigo, descricao, preco);
+                JOptionPane.showMessageDialog(frame, "Cadastrado com sucesso");
+                
+	            } catch (NumberFormatException ex) {
+	                JOptionPane.showMessageDialog(frame, "Valor inválido para o preco! Certifique-se de fornecer um valor numérico válido.", "Erro", JOptionPane.ERROR_MESSAGE);
+	            }
+	
+	        } catch (NumberFormatException ex) {
+	            JOptionPane.showMessageDialog(frame, "Valor inválido para o codigo Certifique-se de fornecer um valor numérico inteiro.", "Erro", JOptionPane.ERROR_MESSAGE);
+	        }		
 	}
 }

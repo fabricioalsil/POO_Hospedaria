@@ -1,22 +1,29 @@
 package Views.FluxoControleInterno;
 
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.Serializable;
+import java.util.Vector;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Font;
-import java.io.Serializable;
-
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.JList;
-import javax.swing.JButton;
 
-public class TelaCadastroAcomodacao implements Serializable {
+import controller.AcomodacaoController;
+import controller.MainController;
+
+public class TelaCadastroAcomodacao extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 1248853447842650386L;
 	private JFrame frame;
 	private JTextField txtInsiraApenasNmeros;
 	private JTextField txtInsiraApenasNmeros_1;
+	private JComboBox<String> comboBox;
 
 	/**
 	 * Launch the application.
@@ -45,7 +52,9 @@ public class TelaCadastroAcomodacao implements Serializable {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		frame = new JFrame();
+		
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -72,7 +81,7 @@ public class TelaCadastroAcomodacao implements Serializable {
 		
 		txtInsiraApenasNmeros = new JTextField();
 		txtInsiraApenasNmeros.setText("Insira apenas números");
-		txtInsiraApenasNmeros.setBounds(149, 58, 110, 19);
+		txtInsiraApenasNmeros.setBounds(149, 58, 110, 20);
 		frame.getContentPane().add(txtInsiraApenasNmeros);
 		txtInsiraApenasNmeros.setColumns(10);
 		
@@ -82,17 +91,56 @@ public class TelaCadastroAcomodacao implements Serializable {
 		frame.getContentPane().add(txtInsiraApenasNmeros_1);
 		txtInsiraApenasNmeros_1.setColumns(10);
 		
-		JList list = new JList(); //INSERIR LISTA DE TIPOS DE ACOMODAÇÃO
-		list.setBounds(149, 106, 1, 1);
-		frame.getContentPane().add(list);
-		
 		JButton btnNewButton = new JButton("Cadastrar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				actionCadastrar();
+			}
+		});
 		btnNewButton.setBounds(261, 219, 85, 21);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Voltar ao Menu");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+			}
+		});
 		btnNewButton_1.setBounds(107, 219, 103, 21);
 		frame.getContentPane().add(btnNewButton_1);
+		
+		initJComboBox();
+		
+	}
+	
+	private void initJComboBox() {
+		
+		AcomodacaoController controller = MainController.getAcomodacaoController();
+		
+		comboBox = new JComboBox<String>(new Vector<String>(controller.getTipoAcomodacao())); 
+		comboBox.setBounds(149, 103, 110, 20);
+		frame.getContentPane().add(comboBox);
+		
 	}
 
+	private void actionCadastrar() {
+		
+		AcomodacaoController controller = MainController.getAcomodacaoController();
+		
+		try {
+			int numero = Integer.parseInt(txtInsiraApenasNmeros.getText());
+			
+			try {
+				int ocupacao = Integer.parseInt(txtInsiraApenasNmeros.getText());
+				String tipo = (String) comboBox.getSelectedItem();
+				controller.addAcomodacao(numero, ocupacao, tipo);
+				JOptionPane.showMessageDialog(frame, "Cadastrado com sucesso");
+				
+			} catch (NumberFormatException ex) {
+				JOptionPane.showMessageDialog(frame, "Valor inválido para a ocupacao maxima! Certifique-se de fornecer um valor numérico válido.", "Erro", JOptionPane.ERROR_MESSAGE);
+			}
+		} catch (NumberFormatException ex) {
+			JOptionPane.showMessageDialog(frame, "Valor inválido para o numero da acomodacao! Certifique-se de fornecer um valor numérico válido.", "Erro", JOptionPane.ERROR_MESSAGE);
+		}		
+	}
 }

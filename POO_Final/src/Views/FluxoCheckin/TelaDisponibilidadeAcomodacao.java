@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JList;
 
-public class TelaDisponibilidadeAcomodacao implements Serializable {
+public class TelaDisponibilidadeAcomodacao extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 6721231452258466300L;
 	private JFrame frame;

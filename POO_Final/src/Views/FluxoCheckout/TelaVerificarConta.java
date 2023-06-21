@@ -14,7 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-public class TelaVerificarConta implements Serializable {
+public class TelaVerificarConta extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 783922877834338726L;
 	private JFrame frame;

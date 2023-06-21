@@ -16,7 +16,7 @@ import java.awt.event.ActionListener;
 import java.io.Serializable;
 import java.awt.event.ActionEvent;
 
-public class TelaCadastroCategoria implements Serializable {
+public class TelaCadastroCategoria extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = -6042173958072169649L;
 	private JFrame frame;
@@ -84,7 +84,7 @@ public class TelaCadastroCategoria implements Serializable {
 		frame.getContentPane().add(textArea);
 		
 		JButton btnNewButton_1 = new JButton("Listar");
-		btnNewButton.addActionListener(new ActionListener() {
+		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				actionListar();
 			}
@@ -93,6 +93,11 @@ public class TelaCadastroCategoria implements Serializable {
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Voltar ao Menu");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+			}
+		});
 		btnNewButton_2.setBounds(313, 219, 113, 21);
 		frame.getContentPane().add(btnNewButton_2);
 	}
@@ -120,4 +125,5 @@ public class TelaCadastroCategoria implements Serializable {
 	private void limparForm() {
 		textField.setText("");
 	}
+
 }

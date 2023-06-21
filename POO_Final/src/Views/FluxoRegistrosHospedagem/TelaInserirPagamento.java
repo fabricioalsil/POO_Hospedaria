@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 import java.io.Serializable;
 import java.awt.event.ActionEvent;
 
-public class TelaInserirPagamento implements Serializable {
+public class TelaInserirPagamento extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 6259099661714699281L;
 	private JFrame frame;

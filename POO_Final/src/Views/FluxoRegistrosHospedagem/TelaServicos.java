@@ -11,7 +11,7 @@ import javax.swing.JList;
 import javax.swing.ListSelectionModel;
 import javax.swing.JButton;
 
-public class TelaServicos implements Serializable {
+public class TelaServicos extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 2789391640248414272L;
 	private JFrame frame;
