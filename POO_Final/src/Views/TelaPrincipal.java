@@ -101,6 +101,8 @@ public class TelaPrincipal extends JFrame implements Serializable {
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel.setBounds(150, 34, 113, 21);
 		frame.getContentPane().add(lblNewLabel);
+		
+		frame.setVisible(true);
 	}
 	
 	private void actionContinuar() {

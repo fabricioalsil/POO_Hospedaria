@@ -17,7 +17,7 @@ public class Main {
 					MainController.load();
 
 					TelaPrincipal frame = new TelaPrincipal();
-					frame.setVisible(true);
+					//frame.setVisible(true);
 
 				} catch (Exception e) {
 					e.printStackTrace();

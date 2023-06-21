@@ -82,6 +82,8 @@ public class TelaControleInterno extends JFrame implements Serializable {
 		});
 		btnNewButton_1.setBounds(87, 154, 85, 21);
 		frame.getContentPane().add(btnNewButton_1);
+		
+		frame.setVisible(true);
 	}
 	
 	private void actionContinuar() {
