@@ -19,7 +19,7 @@ public class TelaPrincipal extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 3455281041763317742L;
 	
-	private JFrame frame;
+	//private JFrame frame;
 	private JRadioButton rdbtnNewRadioButton;
 	private JRadioButton rdbtnNewRadioButton_1;
 	private JRadioButton rdbtnNewRadioButton_2;
@@ -30,10 +30,10 @@ public class TelaPrincipal extends JFrame implements Serializable {
 	}
 
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		//frame = new JFrame();
+		this.setBounds(100, 100, 450, 300);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.getContentPane().setLayout(null);
 		
 		rdbtnNewRadioButton = new JRadioButton("Check-in");
 		rdbtnNewRadioButton.addActionListener(new ActionListener() {
@@ -46,7 +46,7 @@ public class TelaPrincipal extends JFrame implements Serializable {
 			}
 		});
 		rdbtnNewRadioButton.setBounds(136, 76, 180, 21);
-		frame.getContentPane().add(rdbtnNewRadioButton);
+		this.getContentPane().add(rdbtnNewRadioButton);
 		
 		rdbtnNewRadioButton_1 = new JRadioButton("Checkout");
 		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
@@ -59,7 +59,7 @@ public class TelaPrincipal extends JFrame implements Serializable {
 			}
 		});
 		rdbtnNewRadioButton_1.setBounds(136, 99, 180, 21);
-		frame.getContentPane().add(rdbtnNewRadioButton_1);
+		this.getContentPane().add(rdbtnNewRadioButton_1);
 		
 		rdbtnNewRadioButton_2 = new JRadioButton("Registros Hospedagem");
 		rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
@@ -72,7 +72,7 @@ public class TelaPrincipal extends JFrame implements Serializable {
 			}
 		});
 		rdbtnNewRadioButton_2.setBounds(136, 122, 180, 21);
-		frame.getContentPane().add(rdbtnNewRadioButton_2);
+		this.getContentPane().add(rdbtnNewRadioButton_2);
 		
 		rdbtnNewRadioButton_3 = new JRadioButton("Controle Interno");
 		rdbtnNewRadioButton_3.addActionListener(new ActionListener() {
@@ -85,7 +85,7 @@ public class TelaPrincipal extends JFrame implements Serializable {
 			}
 		});
 		rdbtnNewRadioButton_3.setBounds(136, 145, 180, 21);
-		frame.getContentPane().add(rdbtnNewRadioButton_3);
+		this.getContentPane().add(rdbtnNewRadioButton_3);
 		
 		JButton btnNewButton = new JButton("OK");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -95,14 +95,14 @@ public class TelaPrincipal extends JFrame implements Serializable {
 		});
 		
 		btnNewButton.setBounds(154, 184, 85, 21);
-		frame.getContentPane().add(btnNewButton);
+		this.getContentPane().add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("MENU INICIAL");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel.setBounds(150, 34, 113, 21);
-		frame.getContentPane().add(lblNewLabel);
+		this.getContentPane().add(lblNewLabel);
 		
-		frame.setVisible(true);
+		//this.setVisible(true);
 	}
 	
 	private void actionContinuar() {

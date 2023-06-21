@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 public class TelaConfirmacaoCheckout extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = -592348124319785218L;
-	private JFrame frame;
+	//private JFrame frame;
 
 	/**
 	 * Create the application.
@@ -23,19 +23,19 @@ public class TelaConfirmacaoCheckout extends JFrame implements Serializable {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		//frame = new JFrame();
+		this.setBounds(100, 100, 450, 300);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("CHECK-OUT REALIZADO COM SUCESSO!");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel.setBounds(72, 90, 311, 20);
-		frame.getContentPane().add(lblNewLabel);
+		this.getContentPane().add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Voltar ao Menu");
 		btnNewButton.setBounds(159, 131, 103, 21);
-		frame.getContentPane().add(btnNewButton);
+		this.getContentPane().add(btnNewButton);
 	}
 
 }

@@ -19,7 +19,7 @@ import controller.MainController;
 public class TelaCadastroAcomodacao extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 1248853447842650386L;
-	private JFrame frame;
+	//private JFrame frame;
 	private JTextField txtInsiraApenasNmeros;
 	private JTextField txtInsiraApenasNmeros_1;
 	private JComboBox<String> comboBox;
@@ -36,42 +36,42 @@ public class TelaCadastroAcomodacao extends JFrame implements Serializable {
 	 */
 	private void initialize() {
 		
-		frame = new JFrame();
+		//frame = new JFrame();
 		
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		this.setBounds(100, 100, 450, 300);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Número:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblNewLabel.setBounds(84, 60, 55, 13);
-		frame.getContentPane().add(lblNewLabel);
+		this.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Ocupação máx:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblNewLabel_1.setBounds(46, 83, 93, 13);
-		frame.getContentPane().add(lblNewLabel_1);
+		this.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Tipo:");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblNewLabel_2.setBounds(102, 106, 37, 13);
-		frame.getContentPane().add(lblNewLabel_2);
+		this.getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("CADASTRAR ACOMODAÇÃO");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel_3.setBounds(110, 10, 215, 20);
-		frame.getContentPane().add(lblNewLabel_3);
+		this.getContentPane().add(lblNewLabel_3);
 		
 		txtInsiraApenasNmeros = new JTextField();
 		txtInsiraApenasNmeros.setText("Insira apenas números");
 		txtInsiraApenasNmeros.setBounds(149, 58, 110, 20);
-		frame.getContentPane().add(txtInsiraApenasNmeros);
+		this.getContentPane().add(txtInsiraApenasNmeros);
 		txtInsiraApenasNmeros.setColumns(10);
 		
 		txtInsiraApenasNmeros_1 = new JTextField();
 		txtInsiraApenasNmeros_1.setText("Insira apenas números");
 		txtInsiraApenasNmeros_1.setBounds(149, 81, 110, 19);
-		frame.getContentPane().add(txtInsiraApenasNmeros_1);
+		this.getContentPane().add(txtInsiraApenasNmeros_1);
 		txtInsiraApenasNmeros_1.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Cadastrar");
@@ -81,16 +81,16 @@ public class TelaCadastroAcomodacao extends JFrame implements Serializable {
 			}
 		});
 		btnNewButton.setBounds(261, 219, 85, 21);
-		frame.getContentPane().add(btnNewButton);
+		this.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Voltar ao Menu");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
+				dispose();
 			}
 		});
 		btnNewButton_1.setBounds(107, 219, 103, 21);
-		frame.getContentPane().add(btnNewButton_1);
+		this.getContentPane().add(btnNewButton_1);
 		
 		initJComboBox();
 		
@@ -102,7 +102,7 @@ public class TelaCadastroAcomodacao extends JFrame implements Serializable {
 		
 		comboBox = new JComboBox<String>(new Vector<String>(controller.getTipoAcomodacao())); 
 		comboBox.setBounds(149, 103, 110, 20);
-		frame.getContentPane().add(comboBox);
+		this.getContentPane().add(comboBox);
 		
 	}
 
@@ -116,10 +116,10 @@ public class TelaCadastroAcomodacao extends JFrame implements Serializable {
 		
 		try {
 			controller.addAcomodacao(numero, ocupacao, tipo);
-			JOptionPane.showMessageDialog(frame, "Acomodacao cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Acomodacao cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 			
 		} catch (NumberFormatException e) {
-			JOptionPane.showMessageDialog(frame, "Erro: " + e.getMessage(), "Erro ao cadastrar", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Erro: " + e.getMessage(), "Erro ao cadastrar", JOptionPane.ERROR_MESSAGE);
 		}			
 	}
 }

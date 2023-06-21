@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 public class TelaVerificarConta extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 783922877834338726L;
-	private JFrame frame;
+	//private JFrame frame;
 	private JTable table;
 	private JTextField txtR;
 
@@ -29,58 +29,58 @@ public class TelaVerificarConta extends JFrame implements Serializable {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		//frame = new JFrame();
+		this.setBounds(100, 100, 450, 300);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("CONTA");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel.setBounds(196, 10, 57, 20);
-		frame.getContentPane().add(lblNewLabel);
+		this.getContentPane().add(lblNewLabel);
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(27, 40, 207, 169);
-		frame.getContentPane().add(textArea);
+		this.getContentPane().add(textArea);
 		
 		JButton btnNewButton_2 = new JButton("Cancelar");
 		btnNewButton_2.setBounds(85, 232, 85, 21);
-		frame.getContentPane().add(btnNewButton_2);
+		this.getContentPane().add(btnNewButton_2);
 		
 		JButton btnNewButton = new JButton("OK");
 		btnNewButton.setBounds(246, 232, 85, 21);
-		frame.getContentPane().add(btnNewButton);
+		this.getContentPane().add(btnNewButton);
 		
 		JLabel lblNewLabel_1 = new JLabel("Adicionar Pagamento:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblNewLabel_1.setBounds(260, 45, 121, 13);
-		frame.getContentPane().add(lblNewLabel_1);
+		this.getContentPane().add(lblNewLabel_1);
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("PIX");
 		rdbtnNewRadioButton.setBounds(260, 64, 103, 21);
-		frame.getContentPane().add(rdbtnNewRadioButton);
+		this.getContentPane().add(rdbtnNewRadioButton);
 		
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Crédito");
 		rdbtnNewRadioButton_1.setBounds(260, 87, 103, 21);
-		frame.getContentPane().add(rdbtnNewRadioButton_1);
+		this.getContentPane().add(rdbtnNewRadioButton_1);
 		
 		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Débito");
 		rdbtnNewRadioButton_2.setBounds(260, 110, 103, 21);
-		frame.getContentPane().add(rdbtnNewRadioButton_2);
+		this.getContentPane().add(rdbtnNewRadioButton_2);
 		
 		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("Estorno");
 		rdbtnNewRadioButton_3.setBounds(260, 133, 103, 21);
-		frame.getContentPane().add(rdbtnNewRadioButton_3);
+		this.getContentPane().add(rdbtnNewRadioButton_3);
 		
 		JLabel lblNewLabel_2 = new JLabel("Valor:");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblNewLabel_2.setBounds(260, 167, 45, 13);
-		frame.getContentPane().add(lblNewLabel_2);
+		this.getContentPane().add(lblNewLabel_2);
 		
 		txtR = new JTextField();
 		txtR.setText("0,00");
 		txtR.setBounds(296, 167, 114, 19);
-		frame.getContentPane().add(txtR);
+		this.getContentPane().add(txtR);
 		txtR.setColumns(10);
 		
 		

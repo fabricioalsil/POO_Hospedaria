@@ -18,7 +18,7 @@ import controller.MainController;
 public class TelaCadastroCategoria extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = -6042173958072169649L;
-	private JFrame frame;
+	//private JFrame frame;
 	private JTextField textField;
 	private JTextArea textArea;
 
@@ -33,24 +33,24 @@ public class TelaCadastroCategoria extends JFrame implements Serializable {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		//frame = new JFrame();
+		this.setBounds(100, 100, 450, 300);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("CADASTRAR CATEGORIA");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel.setBounds(120, 10, 196, 20);
-		frame.getContentPane().add(lblNewLabel);
+		this.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nome:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblNewLabel_1.setBounds(27, 48, 45, 13);
-		frame.getContentPane().add(lblNewLabel_1);
+		this.getContentPane().add(lblNewLabel_1);
 		
 		textField = new JTextField();
 		textField.setBounds(67, 46, 221, 19);
-		frame.getContentPane().add(textField);
+		this.getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Cadastrar");
@@ -60,11 +60,11 @@ public class TelaCadastroCategoria extends JFrame implements Serializable {
 			}
 		});
 		btnNewButton.setBounds(313, 45, 85, 21);
-		frame.getContentPane().add(btnNewButton);
+		this.getContentPane().add(btnNewButton);
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(27, 85, 261, 155);
-		frame.getContentPane().add(textArea);
+		this.getContentPane().add(textArea);
 		
 		JButton btnNewButton_1 = new JButton("Listar");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -73,16 +73,16 @@ public class TelaCadastroCategoria extends JFrame implements Serializable {
 			}
 		});
 		btnNewButton_1.setBounds(313, 87, 85, 21);
-		frame.getContentPane().add(btnNewButton_1);
+		this.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Voltar ao Menu");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
+				dispose();
 			}
 		});
 		btnNewButton_2.setBounds(313, 219, 113, 21);
-		frame.getContentPane().add(btnNewButton_2);
+		this.getContentPane().add(btnNewButton_2);
 	}
 	
 	private void actionCadastrar () {
@@ -92,7 +92,7 @@ public class TelaCadastroCategoria extends JFrame implements Serializable {
 		String nome = textField.getText();
 
 		controller.addCategoria(nome);
-		JOptionPane.showMessageDialog(frame, "Categoria cadastrada com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(this, "Categoria cadastrada com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 		
 		limparForm();
 	}
