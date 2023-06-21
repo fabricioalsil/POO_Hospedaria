@@ -126,8 +126,8 @@ public class TelaCadastroItem extends JFrame implements Serializable {
 			this.getContentPane().add(comboBox_1);
 			
 		}catch(NullPointerException e) {
-			JOptionPane.showMessageDialog(this, "Erro: É necessário cadastrar uma categoria primeiro", "Erro ao cadastrar", JOptionPane.ERROR_MESSAGE);
-			
+			JOptionPane.showMessageDialog(frame, "Erro: É necessário cadastrar uma categoria primeiro", "Erro ao cadastrar", JOptionPane.ERROR_MESSAGE);
+			frame.dispose();
 		}
 	}
 	
