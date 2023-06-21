@@ -1,34 +1,16 @@
 package Views.FluxoCheckout;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import java.awt.Font;
 import java.io.Serializable;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class TelaConfirmacaoCheckout extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = -592348124319785218L;
 	private JFrame frame;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaConfirmacaoCheckout window = new TelaConfirmacaoCheckout();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.

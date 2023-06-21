@@ -1,5 +1,5 @@
-package Interfaces;
-import Enums.EEstadoOcupacao;
+package interfaces;
+import enums.EEstadoOcupacao;
 
 public interface IAcomodacao {
 	int getNumero();

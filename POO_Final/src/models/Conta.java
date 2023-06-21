@@ -1,8 +1,8 @@
-package Models;
+package models;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import Interfaces.IConta;
+import interfaces.IConta;
 
 public class Conta implements IConta, Serializable {
 	

@@ -1,36 +1,17 @@
 package Views.FluxoRegistrosHospedagem;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import java.awt.Font;
 import java.io.Serializable;
 
-import javax.swing.JList;
-import javax.swing.ListSelectionModel;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
 
 public class TelaServicos extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 2789391640248414272L;
 	private JFrame frame;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaServicos window = new TelaServicos();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.

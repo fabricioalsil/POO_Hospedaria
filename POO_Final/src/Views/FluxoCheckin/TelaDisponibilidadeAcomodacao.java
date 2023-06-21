@@ -1,37 +1,19 @@
 package Views.FluxoCheckin;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import java.awt.Font;
 import java.io.Serializable;
 
-import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JTextField;
 
 public class TelaDisponibilidadeAcomodacao extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 6721231452258466300L;
 	private JFrame frame;
 	private JTextField textField;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaDisponibilidadeAcomodacao window = new TelaDisponibilidadeAcomodacao();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.

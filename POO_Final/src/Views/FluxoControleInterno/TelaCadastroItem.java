@@ -1,11 +1,9 @@
 package Views.FluxoControleInterno;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.Serializable;
-import java.text.DecimalFormat;
 import java.util.Vector;
 
 import javax.swing.JButton;
@@ -15,9 +13,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import Enums.ETipoItem;
 import controller.CatalogoController;
 import controller.MainController;
+import enums.ETipoItem;
 
 public class TelaCadastroItem extends JFrame implements Serializable {
 
@@ -29,22 +27,6 @@ public class TelaCadastroItem extends JFrame implements Serializable {
 	
 	JComboBox<ETipoItem> comboBox;
 	JComboBox<String> comboBox_1;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaCadastroItem window = new TelaCadastroItem();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.

@@ -1,17 +1,14 @@
 package Views.FluxoCheckout;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import java.awt.Font;
 import java.io.Serializable;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
-import javax.swing.JScrollBar;
-import javax.swing.JButton;
-import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 public class TelaVerificarConta extends JFrame implements Serializable {
@@ -20,22 +17,6 @@ public class TelaVerificarConta extends JFrame implements Serializable {
 	private JFrame frame;
 	private JTable table;
 	private JTextField txtR;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaVerificarConta window = new TelaVerificarConta();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.

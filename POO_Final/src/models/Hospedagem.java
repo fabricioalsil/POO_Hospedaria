@@ -1,14 +1,14 @@
-package Models;
+package models;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
-import Enums.ETipoPagamento;
-import Interfaces.IAcomodacao;
-import Interfaces.IConta;
-import Interfaces.IHospede;
+import enums.ETipoPagamento;
+import interfaces.IAcomodacao;
+import interfaces.IConta;
+import interfaces.IHospede;
 
 public class Hospedagem implements Serializable{
 	

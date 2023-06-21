@@ -1,7 +1,7 @@
 package Views.FluxoRegistrosHospedagem;
 
-import java.awt.EventQueue;
 import java.awt.Font;
+import java.io.Serializable;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,31 +9,12 @@ import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import java.awt.event.ActionListener;
-import java.io.Serializable;
-import java.awt.event.ActionEvent;
 
 public class TelaInserirPagamento extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 6259099661714699281L;
 	private JFrame frame;
 	private JTextField txtR;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaInserirPagamento window = new TelaInserirPagamento();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.

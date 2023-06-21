@@ -1,5 +1,5 @@
-package Interfaces;
-import Models.Item;
+package interfaces;
+import models.Item;
 
 public interface IConta {
 	

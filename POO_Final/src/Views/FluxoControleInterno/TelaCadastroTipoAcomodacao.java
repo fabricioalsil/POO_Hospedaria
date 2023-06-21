@@ -1,6 +1,5 @@
 package Views.FluxoControleInterno;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,22 +23,6 @@ public class TelaCadastroTipoAcomodacao extends JFrame implements Serializable {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextArea textArea;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaCadastroTipoAcomodacao window = new TelaCadastroTipoAcomodacao();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.

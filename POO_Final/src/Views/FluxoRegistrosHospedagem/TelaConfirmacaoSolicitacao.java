@@ -1,36 +1,16 @@
 package Views.FluxoRegistrosHospedagem;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import java.awt.Font;
 import java.io.Serializable;
 
-import javax.swing.JTextField;
-import javax.swing.JList;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class TelaConfirmacaoSolicitacao extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = -5834271566170065824L;
 	private JFrame frame;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaConfirmacaoSolicitacao window = new TelaConfirmacaoSolicitacao();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.

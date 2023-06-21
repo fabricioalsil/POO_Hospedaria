@@ -1,14 +1,11 @@
 package Views.FluxoCheckout;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import java.awt.Font;
 import java.io.Serializable;
 
-import javax.swing.JList;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class TelaSelecionarAcomodacaoCheckout extends JFrame implements Serializable {
@@ -16,22 +13,6 @@ public class TelaSelecionarAcomodacaoCheckout extends JFrame implements Serializ
 	private static final long serialVersionUID = 6756937045640783143L;
 	private JFrame frame;
 	private JTextField txtInsiraApenasNmeros;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaSelecionarAcomodacaoCheckout window = new TelaSelecionarAcomodacaoCheckout();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.

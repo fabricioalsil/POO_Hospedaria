@@ -1,14 +1,12 @@
 package Views.FluxoRegistrosHospedagem;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JRadioButton;
-import javax.swing.JLabel;
 import java.awt.Font;
 import java.io.Serializable;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 public class TelaSelecionarSolicitação extends JFrame implements Serializable {
@@ -16,22 +14,6 @@ public class TelaSelecionarSolicitação extends JFrame implements Serializable 
 	private static final long serialVersionUID = 7116332691622616441L;
 	private JFrame frame;
 	private JTextField txtInsiraApenasNmeros;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaSelecionarSolicitação window = new TelaSelecionarSolicitação();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.

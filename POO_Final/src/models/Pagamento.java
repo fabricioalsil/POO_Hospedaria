@@ -1,8 +1,8 @@
-package Models;
+package models;
 import java.io.Serializable;
 import java.util.Date;
 
-import Enums.ETipoPagamento;
+import enums.ETipoPagamento;
 
 public class Pagamento implements Serializable{
 	

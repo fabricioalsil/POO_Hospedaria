@@ -1,34 +1,29 @@
 package Views;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JRadioButton;
-import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.Serializable;
-import java.awt.event.ActionEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Font;
+import javax.swing.JRadioButton;
+
+import Views.FluxoCheckin.TelaDisponibilidadeAcomodacao;
+import Views.FluxoCheckout.TelaSelecionarAcomodacaoCheckout;
+import Views.FluxoControleInterno.TelaControleInterno;
+import Views.FluxoRegistrosHospedagem.TelaSelecionarSolicitação;
 
 public class TelaPrincipal extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 3455281041763317742L;
 	
 	private JFrame frame;
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaPrincipal window = new TelaPrincipal();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private JRadioButton rdbtnNewRadioButton;
+	private JRadioButton rdbtnNewRadioButton_1;
+	private JRadioButton rdbtnNewRadioButton_2;
+	private JRadioButton rdbtnNewRadioButton_3;
 
 	public TelaPrincipal() {
 		initialize();
@@ -40,25 +35,62 @@ public class TelaPrincipal extends JFrame implements Serializable {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Check-in");
-		rdbtnNewRadioButton.setBounds(136, 76, 103, 21);
+		rdbtnNewRadioButton = new JRadioButton("Check-in");
+		rdbtnNewRadioButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(rdbtnNewRadioButton.isSelected()) {
+					rdbtnNewRadioButton_1.setSelected(false);
+					rdbtnNewRadioButton_2.setSelected(false);
+					rdbtnNewRadioButton_3.setSelected(false);
+				}
+			}
+		});
+		rdbtnNewRadioButton.setBounds(136, 76, 180, 21);
 		frame.getContentPane().add(rdbtnNewRadioButton);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Checkout");
-		rdbtnNewRadioButton_1.setBounds(136, 99, 127, 21);
+		rdbtnNewRadioButton_1 = new JRadioButton("Checkout");
+		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(rdbtnNewRadioButton_1.isSelected()) {
+					rdbtnNewRadioButton.setSelected(false);
+					rdbtnNewRadioButton_2.setSelected(false);
+					rdbtnNewRadioButton_3.setSelected(false);
+				}
+			}
+		});
+		rdbtnNewRadioButton_1.setBounds(136, 99, 180, 21);
 		frame.getContentPane().add(rdbtnNewRadioButton_1);
 		
-		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Registros Hospedagem");
-		rdbtnNewRadioButton_2.setBounds(136, 122, 141, 21);
+		rdbtnNewRadioButton_2 = new JRadioButton("Registros Hospedagem");
+		rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(rdbtnNewRadioButton_2.isSelected()) {
+					rdbtnNewRadioButton.setSelected(false);
+					rdbtnNewRadioButton_1.setSelected(false);
+					rdbtnNewRadioButton_3.setSelected(false);
+				}
+			}
+		});
+		rdbtnNewRadioButton_2.setBounds(136, 122, 180, 21);
 		frame.getContentPane().add(rdbtnNewRadioButton_2);
 		
-		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("Controle Interno");
-		rdbtnNewRadioButton_3.setBounds(136, 145, 141, 21);
+		rdbtnNewRadioButton_3 = new JRadioButton("Controle Interno");
+		rdbtnNewRadioButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(rdbtnNewRadioButton_3.isSelected()) {
+					rdbtnNewRadioButton.setSelected(false);
+					rdbtnNewRadioButton_1.setSelected(false);
+					rdbtnNewRadioButton_2.setSelected(false);
+				}
+			}
+		});
+		rdbtnNewRadioButton_3.setBounds(136, 145, 180, 21);
 		frame.getContentPane().add(rdbtnNewRadioButton_3);
 		
 		JButton btnNewButton = new JButton("OK");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				actionContinuar();
 			}
 		});
 		
@@ -70,4 +102,25 @@ public class TelaPrincipal extends JFrame implements Serializable {
 		lblNewLabel.setBounds(150, 34, 113, 21);
 		frame.getContentPane().add(lblNewLabel);
 	}
+	
+	private void actionContinuar() {
+		if(rdbtnNewRadioButton.isSelected()) {
+			TelaDisponibilidadeAcomodacao telaDisponibilidadeAcomodacao = new TelaDisponibilidadeAcomodacao();
+			telaDisponibilidadeAcomodacao.setVisible(true);
+		
+		}else if(rdbtnNewRadioButton_1.isSelected()) {
+			TelaSelecionarAcomodacaoCheckout telaSelecionarAcomodacaoCheckout = new TelaSelecionarAcomodacaoCheckout();
+			telaSelecionarAcomodacaoCheckout.setVisible(true);
+		
+		}else if(rdbtnNewRadioButton_2.isSelected()) {
+			TelaSelecionarSolicitação telaSelecionarSolicitação = new TelaSelecionarSolicitação();
+			telaSelecionarSolicitação.setVisible(true);
+		
+		}else if(rdbtnNewRadioButton_3.isSelected()) {
+			TelaControleInterno telaControleInterno = new TelaControleInterno();
+			telaControleInterno.setVisible(true);
+		
+		}
+	}
+	
 }

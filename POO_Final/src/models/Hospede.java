@@ -1,7 +1,7 @@
-package Models;
+package models;
 import java.io.Serializable;
 
-import Interfaces.IHospede;
+import interfaces.IHospede;
 
 public class Hospede implements IHospede, Serializable {
 	

@@ -1,8 +1,8 @@
-package Models;
+package models;
 import java.io.Serializable;
 
-import Enums.EEstadoOcupacao;
-import Interfaces.IAcomodacao;
+import enums.EEstadoOcupacao;
+import interfaces.IAcomodacao;
 
 public class Acomodacao implements IAcomodacao, Serializable {
 	

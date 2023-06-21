@@ -1,8 +1,8 @@
-package Models;
+package models;
 
 import java.io.Serializable;
 
-import Enums.ETipoItem;
+import enums.ETipoItem;
 
 public class Item implements Serializable {
 	

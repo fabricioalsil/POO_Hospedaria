@@ -8,9 +8,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
-import Enums.EEstadoOcupacao;
-import Models.Acomodacao;
-import Models.TipoAcomodacao;
+import enums.EEstadoOcupacao;
+import models.Acomodacao;
+import models.TipoAcomodacao;
 
 public class AcomodacaoController implements Serializable {
 

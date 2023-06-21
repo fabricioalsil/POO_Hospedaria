@@ -12,9 +12,9 @@ import java.util.TreeMap;
 
 import javax.swing.JOptionPane;
 
-import Enums.ETipoItem;
-import Models.Categoria;
-import Models.Item;
+import enums.ETipoItem;
+import models.Categoria;
+import models.Item;
 
 public class CatalogoController implements Serializable {
 
