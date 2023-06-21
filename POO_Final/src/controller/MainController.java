@@ -13,6 +13,13 @@ public class MainController implements Serializable {
 	private CatalogoController catalogoController;
 	private AcomodacaoController acomodacaoController;
 	
+	private MainController() {
+		
+		catalogoController = new CatalogoController();
+		acomodacaoController = new AcomodacaoController();
+				
+	}
+	
 	public static MainController getInstance() {
 		return instance;
 	}

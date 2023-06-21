@@ -62,7 +62,7 @@ public class TelaCadastroCategoria extends JFrame implements Serializable {
 		btnNewButton.setBounds(313, 45, 85, 21);
 		this.getContentPane().add(btnNewButton);
 		
-		JTextArea textArea = new JTextArea();
+		textArea = new JTextArea();
 		textArea.setBounds(27, 85, 261, 155);
 		this.getContentPane().add(textArea);
 		

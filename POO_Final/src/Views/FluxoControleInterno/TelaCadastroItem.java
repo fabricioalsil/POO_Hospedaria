@@ -115,14 +115,20 @@ public class TelaCadastroItem extends JFrame implements Serializable {
 	
 	private void initJComboBox() {
 		CatalogoController controller = MainController.getCatalogoController();
-		
+			
 		comboBox = new JComboBox<ETipoItem>(ETipoItem.values()); //INSERIR LISTA TIPO (SERVIÇO OU PRODUTO) <<<
 		comboBox.setBounds(171, 96, 96, 21);
 		this.getContentPane().add(comboBox);
 		
-		comboBox_1 = new JComboBox<String>(new Vector<String>(controller.getCategorias())); //INSERIR LISTA CATEGORIAS <<<
-		comboBox_1.setBounds(171, 119, 96, 21);
-		this.getContentPane().add(comboBox_1);
+		try{
+			comboBox_1 = new JComboBox<String>(new Vector<String>(controller.getCategorias())); //INSERIR LISTA CATEGORIAS <<<
+			comboBox_1.setBounds(171, 119, 96, 21);
+			this.getContentPane().add(comboBox_1);
+			
+		}catch(NullPointerException e) {
+			JOptionPane.showMessageDialog(this, "Erro: É necessário cadastrar uma categoria primeiro", "Erro ao cadastrar", JOptionPane.ERROR_MESSAGE);
+			
+		}
 	}
 	
 	private void actionCadastrar() {
@@ -140,10 +146,14 @@ public class TelaCadastroItem extends JFrame implements Serializable {
 	
         } catch (NumberFormatException e) {
         	JOptionPane.showMessageDialog(this, "Erro: " + e.getMessage(), "Erro ao cadastrar", JOptionPane.ERROR_MESSAGE);
-        
-        } catch (Exception e) {
+        	
+        } catch(NullPointerException e) {
+        	JOptionPane.showMessageDialog(this, "Erro: É necessário cadastrar uma categoria primeiro", "Erro ao cadastrar", JOptionPane.ERROR_MESSAGE);
+        	
+        }catch (Exception e) {
 			e.printStackTrace();
 			
 		}		
 	}
+	
 }

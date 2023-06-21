@@ -55,9 +55,13 @@ public class TelaItemCategoria extends JFrame implements Serializable {
 		this.getContentPane().add(rdbtnNewRadioButton);
 		
 		rdbtnNewRadioButton_1 = new JRadioButton("Cadastrar Categoria");
-		if(rdbtnNewRadioButton_1.isSelected()) {
-			rdbtnNewRadioButton.setSelected(false);
-		}
+		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(rdbtnNewRadioButton_1.isSelected()) {
+					rdbtnNewRadioButton.setSelected(false);
+				}
+			}
+		});
 		rdbtnNewRadioButton_1.setBounds(130, 107, 172, 21);
 		this.getContentPane().add(rdbtnNewRadioButton_1);
 		
