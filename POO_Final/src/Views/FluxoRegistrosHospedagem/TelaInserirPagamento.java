@@ -29,17 +29,11 @@ public class TelaInserirPagamento extends JFrame implements Serializable {
 	private JRadioButton rdbtnNewRadioButton_2;
 	private JRadioButton rdbtnNewRadioButton_3;
 
-	/**
-	 * Create the application.
-	 */
 	public TelaInserirPagamento(Hospedagem hospedagem) {
 		this.hospedagem = hospedagem;
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = this;
 		this.setBounds(100, 100, 450, 300);
@@ -83,6 +77,7 @@ public class TelaInserirPagamento extends JFrame implements Serializable {
 				}
 			}
 		});
+		
 		rdbtnNewRadioButton.setBounds(260, 64, 103, 21);
 		this.getContentPane().add(rdbtnNewRadioButton);
 		
@@ -147,18 +142,20 @@ public class TelaInserirPagamento extends JFrame implements Serializable {
 		HospedagemController controller = MainController.getHospedagemController();
 		
 		try {
-			String pagamento;
+			String tipoPagamento = null;
+			
 			if(rdbtnNewRadioButton.isSelected()) {
-				pagamento = rdbtnNewRadioButton.getText();
+				tipoPagamento = rdbtnNewRadioButton.getText();
 			}else if(rdbtnNewRadioButton_1.isSelected()) {
-				pagamento = rdbtnNewRadioButton_1.getText();
+				tipoPagamento = rdbtnNewRadioButton_1.getText();
 			}else if(rdbtnNewRadioButton_2.isSelected()) {
-				pagamento = rdbtnNewRadioButton_2.getText();
+				tipoPagamento = rdbtnNewRadioButton_2.getText();
 			}else if(rdbtnNewRadioButton_3.isSelected()) {
-				pagamento = rdbtnNewRadioButton_3.getText();
+				tipoPagamento = rdbtnNewRadioButton_3.getText();
 			}
 			
-			controller.addPagamento(pagamento, txtR.getText());
+			controller.addPagamento(tipoPagamento, txtR.getText());
+			
 		} catch (NumberFormatException e) {
 			JOptionPane.showMessageDialog(this, "Erro: " + e.getMessage(), "Erro ao adionar pagamento", JOptionPane.ERROR_MESSAGE);
 		}

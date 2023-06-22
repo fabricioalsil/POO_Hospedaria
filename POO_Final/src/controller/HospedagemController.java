@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import enums.EEstadoOcupacao;
+import enums.ETipoPagamento;
 import models.Acomodacao;
 import models.Hospedagem;
 import models.Hospede;
@@ -120,5 +121,12 @@ public class HospedagemController implements Serializable {
 		
 		//Acessa a ultima posição do vetor hospedagem e a remove
 		hospedagem.get(numeroAcomodacao).remove(hospedagem.get(numeroAcomodacao).size() -1);
+	}
+
+	public void addPagamento(String tipoPagamento, String text) {
+		double valor = Double.parseDouble(text);
+		ETipoPagamento tipo = ETipoPagamento.fromString(tipoPagamento);
+		
+		hospedagem.addPagamento(tipo, valor);
 	}
 }
