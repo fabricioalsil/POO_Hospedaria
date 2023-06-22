@@ -43,7 +43,7 @@ public class HospedagemController implements Serializable {
 	
 	public String getExtrato(Hospedagem quarto) {
 		
-		return quarto.getExtrato();
+		return quarto.extrato();
 	}
 	
 	public void addHospede(String cpfString, String nome, String email, String telefoneString) throws NumberFormatException {
