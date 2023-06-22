@@ -50,6 +50,11 @@ public class TelaInserirPagamento extends JFrame implements Serializable {
 		this.getContentPane().add(textArea);
 		
 		JButton btnNewButton_2 = new JButton("Cancelar");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+			}
+		});
 		btnNewButton_2.setBounds(85, 232, 85, 21);
 		this.getContentPane().add(btnNewButton_2);
 		

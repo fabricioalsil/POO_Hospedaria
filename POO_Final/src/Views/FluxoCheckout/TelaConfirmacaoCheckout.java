@@ -6,6 +6,8 @@ import java.io.Serializable;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaConfirmacaoCheckout extends JFrame implements Serializable {
 
@@ -34,6 +36,11 @@ public class TelaConfirmacaoCheckout extends JFrame implements Serializable {
 		this.getContentPane().add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Voltar ao Menu");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		btnNewButton.setBounds(159, 131, 103, 21);
 		this.getContentPane().add(btnNewButton);
 	}
