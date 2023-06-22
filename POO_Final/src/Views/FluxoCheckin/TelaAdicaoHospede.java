@@ -1,26 +1,42 @@
 package Views.FluxoCheckin;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.Serializable;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import controller.HospedagemController;
+import controller.MainController;
+import models.Hospede;
 
 public class TelaAdicaoHospede extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 4641340598900527116L;
-	//private JFrame frame;
+	private JFrame frame;
 	private JTextField txtInsiraApenasNmeros;
 	private JTextField txtInsiraONome;
 	private JTextField txtInsiraApenasNmeros_1;
 	private JTextField txtopcional;
+	private int ocupantes;
+	private String numeroQuarto;
+	private boolean primeiroHospede;
 
 	/**
 	 * Create the application.
+	 * @param i 
+	 * @param ocupantes 
+	 * @param b 
 	 */
-	public TelaAdicaoHospede() {
+	public TelaAdicaoHospede(int ocupantes, String numeroQuarto, boolean b) {
+		this.ocupantes = ocupantes;
+		this.numeroQuarto = numeroQuarto;
+		primeiroHospede = b;
 		initialize();
 	}
 
@@ -28,7 +44,7 @@ public class TelaAdicaoHospede extends JFrame implements Serializable {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		//frame = new JFrame();
+		frame = this;
 		this.setBounds(100, 100, 450, 300);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.getContentPane().setLayout(null);
@@ -50,6 +66,11 @@ public class TelaAdicaoHospede extends JFrame implements Serializable {
 		txtInsiraApenasNmeros.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Verificar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				actionVerificar();
+			}
+		});
 		btnNewButton.setBounds(255, 63, 85, 21);
 		this.getContentPane().add(btnNewButton);
 		
@@ -93,6 +114,25 @@ public class TelaAdicaoHospede extends JFrame implements Serializable {
 		JButton btnNewButton_2 = new JButton("OK");
 		btnNewButton_2.setBounds(255, 215, 85, 21);
 		this.getContentPane().add(btnNewButton_2);
+	}
+
+	private void actionVerificar() {
+		HospedagemController controller = MainController.getHospedagemController();
+		
+		try {
+			Hospede hospede = controller.getHospede(txtInsiraApenasNmeros.getText());
+			if(hospede != null) {
+				txtInsiraONome.setText(hospede.getNome());
+				txtInsiraApenasNmeros_1.setText(""+hospede.getTelefone());
+				String email = hospede.getEmail();
+				if(email != null) {
+					txtopcional.setText(email);
+				}
+			}
+		}catch(NumberFormatException e) {
+			JOptionPane.showMessageDialog(frame, "Erro: " + e.getMessage(), "Erro ao buscar", JOptionPane.ERROR_MESSAGE);
+		}
+		
 	}
 
 }

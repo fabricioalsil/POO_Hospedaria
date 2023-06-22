@@ -1,19 +1,30 @@
 package Views.FluxoCheckin;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.Serializable;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
+
+import controller.AcomodacaoController;
+import controller.MainController;
 
 public class TelaDisponibilidadeAcomodacao extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 6721231452258466300L;
-	//private JFrame frame;
+	private JFrame frame;
 	private JTextField textField;
+	private JTable table;
+	private DefaultTableModel tableModel;
+	private String ocupantes = null;
 
 	/**
 	 * Create the application.
@@ -26,7 +37,7 @@ public class TelaDisponibilidadeAcomodacao extends JFrame implements Serializabl
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		//frame = new JFrame();
+		frame = this;
 		this.setBounds(100, 100, 450, 300);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.getContentPane().setLayout(null);
@@ -47,20 +58,77 @@ public class TelaDisponibilidadeAcomodacao extends JFrame implements Serializabl
 		textField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("OK");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				actionListar();
+			}
+		});
 		btnNewButton.setBounds(252, 70, 45, 21);
 		this.getContentPane().add(btnNewButton);
 		
-		JList list = new JList(); //Adicionar uma lista exibindo todas as opções de acomodação disponiveis e seu respectivo preço
-		list.setBounds(128, 137, 1, 1);
-		this.getContentPane().add(list);
-		
 		JButton btnNewButton_1 = new JButton("Continuar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				actionContinuar();
+			}
+		});
 		btnNewButton_1.setBounds(252, 209, 85, 21);
 		this.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Cancelar");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+			}
+		});
 		btnNewButton_2.setBounds(94, 209, 85, 21);
 		this.getContentPane().add(btnNewButton_2);
 		
+		table = new JTable();
+		tableModel = new DefaultTableModel();
+		String[] colunas = {"Quarto", "Ocupacao Maxima", "Diaria", "Taxa Acompanhante"};
+
+        for (String coluna : colunas) {
+        	tableModel.addColumn(coluna);
+        }
+        
+		table.setModel(tableModel);
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		table.setBounds(94, 110, 243, 89);
+		getContentPane().add(table);
+		
+	}
+
+	private void actionContinuar() {
+		if(ocupantes == null) {
+			JOptionPane.showMessageDialog(frame, "Erro: Selecione um quarto", "Erro ao continuar", JOptionPane.ERROR_MESSAGE);
+		}else {
+			String numero = String.valueOf(table.getValueAt(table.getSelectedRow(), 0));
+			TelaAdicaoHospede telaAdicaoHospede = new TelaAdicaoHospede(Integer.parseInt(ocupantes), numero, true);
+			telaAdicaoHospede.setVisible(true);
+			frame.dispose();
+		}
+	}
+
+	private void actionListar() {
+		AcomodacaoController controller = MainController.getAcomodacaoController();
+		
+		ocupantes = textField.getText();
+		
+		while (tableModel.getRowCount() > 0) {
+			tableModel.removeRow(0);
+        }
+		
+		try {
+			// Adiciona as linhas ao modelo de tabela
+	        for (String[] linha : controller.getDisponibilidade(ocupantes)) {
+	        	tableModel.addRow(linha);
+	        }
+	        
+		}catch(NumberFormatException e) {
+			JOptionPane.showMessageDialog(frame, "Erro: " + e.getMessage(), "Erro ao buscar", JOptionPane.ERROR_MESSAGE);
+		}catch(NullPointerException e) {
+			JOptionPane.showMessageDialog(frame, "Erro: Nenhum quarto disponivel para o valor informado.", "Erro ao buscar", JOptionPane.ERROR_MESSAGE);
+		}
 	}
 }

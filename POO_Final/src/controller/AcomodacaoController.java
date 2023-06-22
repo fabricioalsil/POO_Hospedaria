@@ -3,6 +3,8 @@ package controller;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -81,6 +83,28 @@ public class AcomodacaoController implements Serializable {
 	
 	public Set<String> getTipoAcomodacao(){
 		return tipoAcomodacao.keySet();
+	}
+	
+	public String[][] getDisponibilidade(String ocupantes) throws NumberFormatException {
+		List<String[]> linhaElementos = new ArrayList<>();
+		try {
+			int numeroOcupantes = Integer.parseInt(ocupantes);
+			for (Acomodacao quarto : acomodacao.values()) {
+				if(quarto.getOcupacaoMaxima() >= numeroOcupantes && quarto.getEstadoOcupacao() == EEstadoOcupacao.DISPONIVEL) {
+					String[] linha = {String.valueOf(quarto.getNumero()), String.valueOf(quarto.getOcupacaoMaxima()), String.valueOf(quarto.getTarifaDiaria()), String.valueOf(quarto.getAdicionalAcompanhante())};
+					linhaElementos.add(linha);
+				}
+			}
+			String[][] matrizElementos = new String[linhaElementos.size()][];
+			linhaElementos.toArray(matrizElementos);
+						
+			return matrizElementos;
+			
+		}catch(NumberFormatException e) {
+			throw new NumberFormatException("O numero de ocupantes nao e um valor valido.");
+		}catch(NullPointerException e) {
+			throw new NullPointerException();
+		}
 	}
 	
 }

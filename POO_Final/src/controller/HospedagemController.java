@@ -5,16 +5,18 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import models.Hospedagem;
+import models.Hospede;
 
 public class HospedagemController implements Serializable {
 
 	private static final long serialVersionUID = -2986449868123120251L;
 	
 	private Map<Hospedagem, Integer> hospedagem;
+	private Map<Long, Hospede> hospedes;
 	
 	public HospedagemController() {
 		hospedagem = new TreeMap<>();
-		
+		hospedes = new TreeMap<>();
 	}
 	
 	public Hospedagem getHospedagem(String numeroAcomodacaoString) throws NumberFormatException, NullPointerException {
@@ -44,5 +46,29 @@ public class HospedagemController implements Serializable {
 		return quarto.getExtrato();
 	}
 	
+	public void addHospede(String cpfString, String nome, String email, String telefoneString) throws NumberFormatException {
+		try {
+			long cpf = Integer.parseInt(cpfString);
+			try {
+				long telefone = Integer.parseInt(telefoneString);
+				Hospede newHospede = new Hospede(cpf, nome, email, telefone);
+				hospedes.put(cpf, newHospede);
+				
+			}catch(NumberFormatException e) {
+				throw new NumberFormatException("O telefone informado nao e valido, digite somente numeros");
+			}
+		}catch(NumberFormatException e) {
+			throw new NumberFormatException("O cpf informado nao e valido, digite somente numeros");
+		}
+	}
 	
+	public Hospede getHospede(String cpfString) throws NumberFormatException {
+		try {
+			long cpf = Integer.parseInt(cpfString);
+			return hospedes.get(cpf);
+			
+		}catch(NumberFormatException e) {
+			throw new NumberFormatException("O cpf informado nao e valido, digite somente numeros");
+		}
+	}
 }
