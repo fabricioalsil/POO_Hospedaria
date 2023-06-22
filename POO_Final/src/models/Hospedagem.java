@@ -80,6 +80,34 @@ public class Hospedagem implements Serializable{
 		pagamento.add(new Pagamento(ETipoPagamento.ESTORNO, -valor));
 	}
 	
+	public String getExtrato() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Gastos: \n");
+		sb.append(conta.listar());
+		sb.append("Pagamentos feitos: \n");
+		
+		double valorFinal = 0;
+		
+		for (Pagamento pago : pagamento) {
+			sb.append(pago.getTipo() + " R$ " + pago.getValor() + "\n");
+			valorFinal += pago.getValor();
+		}
+		sb.append("Pagamentos totais: R$" + valorFinal + "\n\n");
+		sb.append("Valor final: \n");
+		valorFinal -= conta.getTotal();
+		
+		if(valorFinal > 0) {
+			sb.append("Credito de R$ " + valorFinal + "\n");
+		}else if(valorFinal < 0) {
+			valorFinal *= -1;
+			sb.append("Debito de R$ " + valorFinal + "\n");
+		}else {
+			sb.append("Não há pendencias\n");
+		}
+		
+		return sb.toString();
+	}
+	
 	public String getId() {
 		return id;
 	}
@@ -90,9 +118,6 @@ public class Hospedagem implements Serializable{
 	}
 
 	//Métodos da classe
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
 
 	public static int getIniciocheckin() {
 		return INICIO_CHECKIN;

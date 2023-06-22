@@ -116,12 +116,12 @@ public class TelaCadastroItem extends JFrame implements Serializable {
 	private void initJComboBox() {
 		CatalogoController controller = MainController.getCatalogoController();
 			
-		comboBox = new JComboBox<ETipoItem>(ETipoItem.values()); //INSERIR LISTA TIPO (SERVIÇO OU PRODUTO) <<<
+		comboBox = new JComboBox<ETipoItem>(ETipoItem.values());
 		comboBox.setBounds(171, 96, 96, 21);
 		this.getContentPane().add(comboBox);
 		
 		try{
-			comboBox_1 = new JComboBox<String>(new Vector<String>(controller.getCategorias())); //INSERIR LISTA CATEGORIAS <<<
+			comboBox_1 = new JComboBox<String>(new Vector<String>(controller.getCategorias()));
 			comboBox_1.setBounds(171, 119, 96, 21);
 			this.getContentPane().add(comboBox_1);
 			

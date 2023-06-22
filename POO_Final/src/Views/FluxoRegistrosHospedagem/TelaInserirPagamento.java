@@ -10,6 +10,8 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import controller.HospedagemController;
+import controller.MainController;
 import models.Hospedagem;
 
 public class TelaInserirPagamento extends JFrame implements Serializable {
@@ -17,6 +19,12 @@ public class TelaInserirPagamento extends JFrame implements Serializable {
 	private static final long serialVersionUID = 6259099661714699281L;
 	Hospedagem hospedagem;
 	private JTextField txtR;
+	private JFrame frame;
+	private JTextArea textArea;
+	private JRadioButton rdbtnNewRadioButton;
+	private JRadioButton rdbtnNewRadioButton_1;
+	private JRadioButton rdbtnNewRadioButton_2;
+	private JRadioButton rdbtnNewRadioButton_3;
 
 	/**
 	 * Create the application.
@@ -30,7 +38,7 @@ public class TelaInserirPagamento extends JFrame implements Serializable {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		//frame = new JFrame();
+		frame = this;
 		this.setBounds(100, 100, 450, 300);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.getContentPane().setLayout(null);
@@ -40,7 +48,7 @@ public class TelaInserirPagamento extends JFrame implements Serializable {
 		lblNewLabel.setBounds(168, 10, 103, 20);
 		this.getContentPane().add(lblNewLabel);
 		
-		JTextArea textArea = new JTextArea();
+		textArea = new JTextArea();
 		textArea.setBounds(27, 40, 207, 169);
 		this.getContentPane().add(textArea);
 		
@@ -57,19 +65,19 @@ public class TelaInserirPagamento extends JFrame implements Serializable {
 		lblNewLabel_1.setBounds(260, 45, 121, 13);
 		this.getContentPane().add(lblNewLabel_1);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("PIX");
+		rdbtnNewRadioButton = new JRadioButton("PIX");
 		rdbtnNewRadioButton.setBounds(260, 64, 103, 21);
 		this.getContentPane().add(rdbtnNewRadioButton);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Crédito");
+		rdbtnNewRadioButton_1 = new JRadioButton("Crédito");
 		rdbtnNewRadioButton_1.setBounds(260, 87, 103, 21);
 		this.getContentPane().add(rdbtnNewRadioButton_1);
 		
-		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Débito");
+		rdbtnNewRadioButton_2 = new JRadioButton("Débito");
 		rdbtnNewRadioButton_2.setBounds(260, 110, 103, 21);
 		this.getContentPane().add(rdbtnNewRadioButton_2);
 		
-		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("Estorno");
+		rdbtnNewRadioButton_3 = new JRadioButton("Estorno");
 		rdbtnNewRadioButton_3.setBounds(260, 133, 103, 21);
 		this.getContentPane().add(rdbtnNewRadioButton_3);
 		
@@ -88,6 +96,14 @@ public class TelaInserirPagamento extends JFrame implements Serializable {
 		btnNewButton_1.setBounds(296, 232, 85, 21);
 		this.getContentPane().add(btnNewButton_1);
 		
+		extrato();
 	}
 
+	private void extrato() {
+		HospedagemController controller = MainController.getHospedagemController();
+
+		textArea.setText(null);
+		textArea.append(controller.getExtrato(hospedagem));
+		
+	}
 }

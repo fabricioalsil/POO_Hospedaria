@@ -37,7 +37,11 @@ public class HospedagemController implements Serializable {
 		}
 		
 		return null;
+	}
+	
+	public String getExtrato(Hospedagem quarto) {
 		
+		return quarto.getExtrato();
 	}
 	
 	
