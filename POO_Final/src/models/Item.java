@@ -12,7 +12,7 @@ public class Item implements Serializable {
 	private final String descricao;
 	private double preco;
 	private ETipoItem tipo;
-	
+
 	public Item(long codigo, ETipoItem tipo, String descricao, double preco) {
 		this.codigo = codigo;
 		this.tipo = tipo;
@@ -35,5 +35,13 @@ public class Item implements Serializable {
 	public String getDescricao() {
 		return descricao;
 	}
+	
+	public ETipoItem getTipo() {
+		return tipo;
+	}
 
+	public void setTipo(ETipoItem tipo) {
+		this.tipo = tipo;
+	}
+	
 }
