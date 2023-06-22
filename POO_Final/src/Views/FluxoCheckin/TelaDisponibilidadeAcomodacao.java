@@ -24,6 +24,7 @@ public class TelaDisponibilidadeAcomodacao extends JFrame implements Serializabl
 	private JTextField textField;
 	private JTable table;
 	private DefaultTableModel tableModel;
+	private String ocupantes = null;
 
 	/**
 	 * Create the application.
@@ -68,6 +69,7 @@ public class TelaDisponibilidadeAcomodacao extends JFrame implements Serializabl
 		JButton btnNewButton_1 = new JButton("Continuar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				actionContinuar();
 			}
 		});
 		btnNewButton_1.setBounds(252, 209, 85, 21);
@@ -97,10 +99,21 @@ public class TelaDisponibilidadeAcomodacao extends JFrame implements Serializabl
 		
 	}
 
+	private void actionContinuar() {
+		if(ocupantes == null) {
+			JOptionPane.showMessageDialog(frame, "Erro: Selecione um quarto", "Erro ao continuar", JOptionPane.ERROR_MESSAGE);
+		}else {
+			String numero = String.valueOf(table.getValueAt(table.getSelectedRow(), 0));
+			TelaAdicaoHospede telaAdicaoHospede = new TelaAdicaoHospede(Integer.parseInt(ocupantes), numero, true);
+			telaAdicaoHospede.setVisible(true);
+			frame.dispose();
+		}
+	}
+
 	private void actionListar() {
 		AcomodacaoController controller = MainController.getAcomodacaoController();
 		
-		String ocupantes = textField.getText();
+		ocupantes = textField.getText();
 		
 		while (tableModel.getRowCount() > 0) {
 			tableModel.removeRow(0);

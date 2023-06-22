@@ -1,12 +1,17 @@
 package Views.FluxoCheckin;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.Serializable;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import controller.HospedagemController;
+import controller.MainController;
 
 public class TelaAdicaoHospede extends JFrame implements Serializable {
 
@@ -16,11 +21,20 @@ public class TelaAdicaoHospede extends JFrame implements Serializable {
 	private JTextField txtInsiraONome;
 	private JTextField txtInsiraApenasNmeros_1;
 	private JTextField txtopcional;
+	private int ocupantes;
+	private String numeroQuarto;
+	private boolean primeiroHospede;
 
 	/**
 	 * Create the application.
+	 * @param i 
+	 * @param ocupantes 
+	 * @param b 
 	 */
-	public TelaAdicaoHospede() {
+	public TelaAdicaoHospede(int ocupantes, String numeroQuarto, boolean b) {
+		this.ocupantes = ocupantes;
+		this.numeroQuarto = numeroQuarto;
+		primeiroHospede = b;
 		initialize();
 	}
 
@@ -50,6 +64,11 @@ public class TelaAdicaoHospede extends JFrame implements Serializable {
 		txtInsiraApenasNmeros.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Verificar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				actionVerificar();
+			}
+		});
 		btnNewButton.setBounds(255, 63, 85, 21);
 		this.getContentPane().add(btnNewButton);
 		
@@ -93,6 +112,10 @@ public class TelaAdicaoHospede extends JFrame implements Serializable {
 		JButton btnNewButton_2 = new JButton("OK");
 		btnNewButton_2.setBounds(255, 215, 85, 21);
 		this.getContentPane().add(btnNewButton_2);
+	}
+
+	private void actionVerificar() {
+		HospedagemController controller = MainController.getHospedagemController();
 	}
 
 }
