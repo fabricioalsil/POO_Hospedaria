@@ -123,10 +123,15 @@ public class HospedagemController implements Serializable {
 		hospedagem.get(numeroAcomodacao).remove(hospedagem.get(numeroAcomodacao).size() -1);
 	}
 
-	public void addPagamento(String tipoPagamento, String text) {
-		double valor = Double.parseDouble(text);
-		ETipoPagamento tipo = ETipoPagamento.fromString(tipoPagamento);
+	public void addPagamento(Hospedagem quarto, String tipoPagamento, String valorString) throws NumberFormatException {
 		
-		hospedagem.addPagamento(tipo, valor);
+		try{
+			double valor = Double.parseDouble(valorString);
+			ETipoPagamento tipo = ETipoPagamento.fromString(tipoPagamento);
+			
+			quarto.addPagamento(tipo, valor);
+		}catch(NumberFormatException e) {
+			throw new NumberFormatException("O numero escrito no campo valor e invalido.");
+		}		
 	}
 }

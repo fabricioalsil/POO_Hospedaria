@@ -50,7 +50,7 @@ public class TelaInserirPagamento extends JFrame implements Serializable {
 		this.getContentPane().add(textArea);
 		
 		JButton btnNewButton_2 = new JButton("Cancelar");
-		btnNewButton_2.setBounds(69, 232, 85, 21);
+		btnNewButton_2.setBounds(85, 232, 85, 21);
 		this.getContentPane().add(btnNewButton_2);
 		
 		JButton btnNewButton = new JButton("Adicionar");
@@ -59,7 +59,7 @@ public class TelaInserirPagamento extends JFrame implements Serializable {
 				actionAdicionar();
 			}
 		});
-		btnNewButton.setBounds(186, 232, 85, 21);
+		btnNewButton.setBounds(260, 232, 85, 21);
 		this.getContentPane().add(btnNewButton);
 		
 		JLabel lblNewLabel_1 = new JLabel("Adicionar Pagamento:");
@@ -131,10 +131,6 @@ public class TelaInserirPagamento extends JFrame implements Serializable {
 		this.getContentPane().add(txtR);
 		txtR.setColumns(10);
 		
-		JButton btnNewButton_1 = new JButton("Finalizar");
-		btnNewButton_1.setBounds(296, 232, 85, 21);
-		this.getContentPane().add(btnNewButton_1);
-		
 		extrato();
 	}
 
@@ -154,7 +150,8 @@ public class TelaInserirPagamento extends JFrame implements Serializable {
 				tipoPagamento = rdbtnNewRadioButton_3.getText();
 			}
 			
-			controller.addPagamento(tipoPagamento, txtR.getText());
+			controller.addPagamento(hospedagem, tipoPagamento, txtR.getText());
+			extrato();
 			
 		} catch (NumberFormatException e) {
 			JOptionPane.showMessageDialog(this, "Erro: " + e.getMessage(), "Erro ao adionar pagamento", JOptionPane.ERROR_MESSAGE);
