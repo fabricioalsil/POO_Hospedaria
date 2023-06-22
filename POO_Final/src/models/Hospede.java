@@ -12,9 +12,16 @@ public class Hospede implements IHospede, Serializable {
 	private String email;
 	private long telefone;
 	
+	public Hospede(long cpf, String nome, long telefone) {
+		this.cpf = cpf;
+		this.nome = nome;
+		this.telefone = telefone;
+	}
+	
 	public Hospede(long cpf, String nome, String email, long telefone) {
 		this.cpf = cpf;
 		this.nome = nome;
+		this.email = email;
 		this.telefone = telefone;
 	}
 	

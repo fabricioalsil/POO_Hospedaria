@@ -8,15 +8,17 @@ import java.io.Serializable;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import controller.HospedagemController;
 import controller.MainController;
+import models.Hospede;
 
 public class TelaAdicaoHospede extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 4641340598900527116L;
-	//private JFrame frame;
+	private JFrame frame;
 	private JTextField txtInsiraApenasNmeros;
 	private JTextField txtInsiraONome;
 	private JTextField txtInsiraApenasNmeros_1;
@@ -42,7 +44,7 @@ public class TelaAdicaoHospede extends JFrame implements Serializable {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		//frame = new JFrame();
+		frame = this;
 		this.setBounds(100, 100, 450, 300);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.getContentPane().setLayout(null);
@@ -116,6 +118,21 @@ public class TelaAdicaoHospede extends JFrame implements Serializable {
 
 	private void actionVerificar() {
 		HospedagemController controller = MainController.getHospedagemController();
+		
+		try {
+			Hospede hospede = controller.getHospede(txtInsiraApenasNmeros.getText());
+			if(hospede != null) {
+				txtInsiraONome.setText(hospede.getNome());
+				txtInsiraApenasNmeros_1.setText(""+hospede.getTelefone());
+				String email = hospede.getEmail();
+				if(email != null) {
+					txtopcional.setText(email);
+				}
+			}
+		}catch(NumberFormatException e) {
+			JOptionPane.showMessageDialog(frame, "Erro: " + e.getMessage(), "Erro ao buscar", JOptionPane.ERROR_MESSAGE);
+		}
+		
 	}
 
 }
