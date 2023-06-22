@@ -6,11 +6,13 @@ import java.io.Serializable;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaConfirmacaoCheckin extends JFrame implements Serializable {
 
 	private static final long serialVersionUID = 8333899366496520507L;
-	//private JFrame frame;
+	private JFrame frame;
 
 	/**
 	 * Create the application.
@@ -23,7 +25,7 @@ public class TelaConfirmacaoCheckin extends JFrame implements Serializable {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		//frame = new JFrame();
+		frame = this;
 		this.setBounds(100, 100, 450, 300);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.getContentPane().setLayout(null);
@@ -34,6 +36,11 @@ public class TelaConfirmacaoCheckin extends JFrame implements Serializable {
 		this.getContentPane().add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Voltar ao Menu");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+			}
+		});
 		btnNewButton.setBounds(157, 154, 103, 21);
 		this.getContentPane().add(btnNewButton);
 	}

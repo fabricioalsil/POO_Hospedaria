@@ -47,6 +47,16 @@ public class AcomodacaoController implements Serializable {
 		MainController.save();		
 	}
 	
+	public Acomodacao getAcomodacao(String numeroQuarto) throws NumberFormatException {
+		try {
+			int numero = Integer.parseInt(numeroQuarto);
+			return acomodacao.get(numero);
+			
+		} catch (NumberFormatException e) {
+			throw new NumberFormatException("O numero do quarto digitado nao e um numero valido.");
+		}
+	}
+	
 	public void addTipoAcomodacao(String nome, String tarifaDiariaString, String adicionalAcompanhanteString) throws NumberFormatException, Exception {
 		
 		if(tipoAcomodacao.get(nome) != null) {

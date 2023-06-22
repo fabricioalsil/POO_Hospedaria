@@ -27,12 +27,6 @@ public class TelaAdicaoHospede extends JFrame implements Serializable {
 	private String numeroQuarto;
 	private boolean primeiroHospede;
 
-	/**
-	 * Create the application.
-	 * @param i 
-	 * @param ocupantes 
-	 * @param b 
-	 */
 	public TelaAdicaoHospede(int ocupantes, String numeroQuarto, boolean b) {
 		this.ocupantes = ocupantes;
 		this.numeroQuarto = numeroQuarto;
@@ -108,12 +102,46 @@ public class TelaAdicaoHospede extends JFrame implements Serializable {
 		txtopcional.setColumns(10);
 		
 		JButton btnNewButton_1 = new JButton("Cancelar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(primeiroHospede == false) {
+					actionCancelar();
+				}
+				frame.dispose();
+			}
+		});
 		btnNewButton_1.setBounds(73, 215, 85, 21);
 		this.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("OK");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				actionContinuar();
+			}
+		});
 		btnNewButton_2.setBounds(255, 215, 85, 21);
 		this.getContentPane().add(btnNewButton_2);
+	}
+
+	private void actionContinuar() {
+		HospedagemController controller = MainController.getHospedagemController();
+		
+		try {
+			controller.addHospedagem(numeroQuarto, txtInsiraApenasNmeros.getText(), txtInsiraONome.getText(), txtInsiraApenasNmeros_1.getText(), txtopcional.getText(), primeiroHospede);
+			if(ocupantes>1) {
+				TelaAdicaoHospede telaAdicaoHospede = new TelaAdicaoHospede(ocupantes-1, numeroQuarto, false);
+				telaAdicaoHospede.setVisible(true);
+				frame.dispose();
+			}else {
+				TelaConfirmacaoCheckin telaConfirmacaoCheckin = new TelaConfirmacaoCheckin();
+				telaConfirmacaoCheckin.setVisible(true);
+				frame.dispose();
+			}
+			
+		}catch(NumberFormatException e) {
+			JOptionPane.showMessageDialog(frame, "Erro: " + e.getMessage() , "Erro ", JOptionPane.ERROR_MESSAGE);
+		}
+
 	}
 
 	private void actionVerificar() {
@@ -133,6 +161,11 @@ public class TelaAdicaoHospede extends JFrame implements Serializable {
 			JOptionPane.showMessageDialog(frame, "Erro: " + e.getMessage(), "Erro ao buscar", JOptionPane.ERROR_MESSAGE);
 		}
 		
+	}
+	
+	private void actionCancelar() {
+		HospedagemController controller = MainController.getHospedagemController();
+		controller.cancelar(numeroQuarto);
 	}
 
 }
