@@ -71,12 +71,16 @@ public class TelaAcomodacao extends JFrame implements Serializable  {
 				actionContinuar();
 			}
 		});
-		btnNewButton.setBounds(236, 154, 85, 21);
+		btnNewButton.setBounds(240, 175, 85, 21);
 		this.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Cancelar");
-		btnNewButton_1.setBounds(87, 154, 85, 21);
+		btnNewButton_1.setBounds(86, 175, 85, 21);
 		this.getContentPane().add(btnNewButton_1);
+		
+		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Manutenção da Acomodação");
+		rdbtnNewRadioButton_2.setBounds(130, 130, 172, 21);
+		getContentPane().add(rdbtnNewRadioButton_2);
 	}
 	
 	private void actionContinuar() {
