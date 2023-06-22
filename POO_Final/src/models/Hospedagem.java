@@ -135,8 +135,7 @@ public class Hospedagem implements Serializable{
 			listarPgtos.append(pgto.getValor()).append("\n");
 		}
 		listarPgtos.append("> SUBTOTAL: R$" + totalPagamentos() + "\n");
-		
-		
+				
 		return listarPgtos;
 	}
 	
