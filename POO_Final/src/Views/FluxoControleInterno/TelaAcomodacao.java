@@ -16,6 +16,7 @@ public class TelaAcomodacao extends JFrame implements Serializable  {
 	//private JFrame frame;
 	private JRadioButton rdbtnNewRadioButton;
 	private JRadioButton rdbtnNewRadioButton_1;
+	private JRadioButton rdbtnNewRadioButton_2;
 
 	/**
 	 * Create the application.
@@ -48,6 +49,7 @@ public class TelaAcomodacao extends JFrame implements Serializable  {
 			public void actionPerformed(ActionEvent e) {
 				if(rdbtnNewRadioButton.isSelected()) {
 					rdbtnNewRadioButton_1.setSelected(false);
+					rdbtnNewRadioButton_2.setSelected(false);
 				}
 			}
 		});
@@ -59,6 +61,7 @@ public class TelaAcomodacao extends JFrame implements Serializable  {
 			public void actionPerformed(ActionEvent e) {
 				if(rdbtnNewRadioButton_1.isSelected()) {
 					rdbtnNewRadioButton.setSelected(false);
+					rdbtnNewRadioButton_2.setSelected(false);
 				}
 			}
 		});
@@ -78,7 +81,15 @@ public class TelaAcomodacao extends JFrame implements Serializable  {
 		btnNewButton_1.setBounds(86, 175, 85, 21);
 		this.getContentPane().add(btnNewButton_1);
 		
-		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Manutenção da Acomodação");
+		rdbtnNewRadioButton_2 = new JRadioButton("Manutenção da Acomodação");
+		rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(rdbtnNewRadioButton_2.isSelected()) {
+					rdbtnNewRadioButton.setSelected(false);
+					rdbtnNewRadioButton_1.setSelected(false);
+				}
+			}
+		});
 		rdbtnNewRadioButton_2.setBounds(130, 130, 172, 21);
 		getContentPane().add(rdbtnNewRadioButton_2);
 	}
@@ -92,6 +103,10 @@ public class TelaAcomodacao extends JFrame implements Serializable  {
 		}else if(rdbtnNewRadioButton_1.isSelected()) {
 			TelaCadastroTipoAcomodacao telaCadastroTipoAcomodacao = new TelaCadastroTipoAcomodacao();
 			telaCadastroTipoAcomodacao.setVisible(true);
+			dispose();
+		}else if(rdbtnNewRadioButton_2.isSelected()) {
+			TelaManutencaoAcomodacao telaManutencaoAcomodacao = new TelaManutencaoAcomodacao();
+			telaManutencaoAcomodacao.setVisible(true);
 			dispose();
 		}
 		

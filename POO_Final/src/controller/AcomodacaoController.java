@@ -117,4 +117,18 @@ public class AcomodacaoController implements Serializable {
 		}
 	}
 	
+	public void setStatus(String numeroString, boolean b) throws NumberFormatException {
+		
+		try {
+			if(b == true){
+				getAcomodacao(numeroString).setEstadoOcupacao(EEstadoOcupacao.MANUTENCAO);
+			}else {
+				getAcomodacao(numeroString).setEstadoOcupacao(EEstadoOcupacao.DISPONIVEL);
+			}
+			
+		} catch (NumberFormatException e) {
+			throw e;
+		}
+	}
+	
 }
