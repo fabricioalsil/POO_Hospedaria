@@ -90,9 +90,9 @@ public class HospedagemController implements Serializable {
 	
 	public Hospede addHospede(String cpfString, String nome, String email, String telefoneString) throws NumberFormatException {
 		try {
-			long cpf = Integer.parseInt(cpfString);
+			long cpf = Long.parseLong(cpfString);
 			try {
-				long telefone = Integer.parseInt(telefoneString);
+				long telefone = Long.parseLong(telefoneString);
 				Hospede newHospede = new Hospede(cpf, nome, email, telefone);
 				hospedes.put(cpf, newHospede);
 				return newHospede;
@@ -107,7 +107,7 @@ public class HospedagemController implements Serializable {
 	
 	public Hospede getHospede(String cpfString) throws NumberFormatException {
 		try {
-			long cpf = Integer.parseInt(cpfString);
+			long cpf = Long.parseLong(cpfString);
 			return hospedes.get(cpf);
 			
 		}catch(NumberFormatException e) {

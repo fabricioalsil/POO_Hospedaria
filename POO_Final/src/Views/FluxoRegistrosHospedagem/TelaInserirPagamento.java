@@ -6,6 +6,7 @@ import java.io.Serializable;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -13,6 +14,8 @@ import javax.swing.JTextField;
 import controller.HospedagemController;
 import controller.MainController;
 import models.Hospedagem;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaInserirPagamento extends JFrame implements Serializable {
 
@@ -57,6 +60,11 @@ public class TelaInserirPagamento extends JFrame implements Serializable {
 		this.getContentPane().add(btnNewButton_2);
 		
 		JButton btnNewButton = new JButton("Adicionar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				actionAdicionar();
+			}
+		});
 		btnNewButton.setBounds(186, 232, 85, 21);
 		this.getContentPane().add(btnNewButton);
 		
@@ -66,18 +74,54 @@ public class TelaInserirPagamento extends JFrame implements Serializable {
 		this.getContentPane().add(lblNewLabel_1);
 		
 		rdbtnNewRadioButton = new JRadioButton("PIX");
+		rdbtnNewRadioButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(rdbtnNewRadioButton.isSelected() == true) {
+					rdbtnNewRadioButton_1.setSelected(false);
+					rdbtnNewRadioButton_2.setSelected(false);
+					rdbtnNewRadioButton_3.setSelected(false);
+				}
+			}
+		});
 		rdbtnNewRadioButton.setBounds(260, 64, 103, 21);
 		this.getContentPane().add(rdbtnNewRadioButton);
 		
 		rdbtnNewRadioButton_1 = new JRadioButton("Crédito");
+		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(rdbtnNewRadioButton_1.isSelected() == true) {
+					rdbtnNewRadioButton.setSelected(false);
+					rdbtnNewRadioButton_2.setSelected(false);
+					rdbtnNewRadioButton_3.setSelected(false);
+				}
+			}
+		});
 		rdbtnNewRadioButton_1.setBounds(260, 87, 103, 21);
 		this.getContentPane().add(rdbtnNewRadioButton_1);
 		
 		rdbtnNewRadioButton_2 = new JRadioButton("Débito");
+		rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(rdbtnNewRadioButton_2.isSelected() == true) {
+					rdbtnNewRadioButton.setSelected(false);
+					rdbtnNewRadioButton_1.setSelected(false);
+					rdbtnNewRadioButton_3.setSelected(false);
+				}
+			}
+		});
 		rdbtnNewRadioButton_2.setBounds(260, 110, 103, 21);
 		this.getContentPane().add(rdbtnNewRadioButton_2);
 		
 		rdbtnNewRadioButton_3 = new JRadioButton("Estorno");
+		rdbtnNewRadioButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(rdbtnNewRadioButton_3.isSelected() == true) {
+					rdbtnNewRadioButton.setSelected(false);
+					rdbtnNewRadioButton_1.setSelected(false);
+					rdbtnNewRadioButton_2.setSelected(false);
+				}
+			}
+		});
 		rdbtnNewRadioButton_3.setBounds(260, 133, 103, 21);
 		this.getContentPane().add(rdbtnNewRadioButton_3);
 		
@@ -97,6 +141,28 @@ public class TelaInserirPagamento extends JFrame implements Serializable {
 		this.getContentPane().add(btnNewButton_1);
 		
 		extrato();
+	}
+
+	private void actionAdicionar() {
+		HospedagemController controller = MainController.getHospedagemController();
+		
+		try {
+			String pagamento;
+			if(rdbtnNewRadioButton.isSelected()) {
+				pagamento = rdbtnNewRadioButton.getText();
+			}else if(rdbtnNewRadioButton_1.isSelected()) {
+				pagamento = rdbtnNewRadioButton_1.getText();
+			}else if(rdbtnNewRadioButton_2.isSelected()) {
+				pagamento = rdbtnNewRadioButton_2.getText();
+			}else if(rdbtnNewRadioButton_3.isSelected()) {
+				pagamento = rdbtnNewRadioButton_3.getText();
+			}
+			
+			controller.addPagamento(pagamento, txtR.getText());
+		} catch (NumberFormatException e) {
+			JOptionPane.showMessageDialog(this, "Erro: " + e.getMessage(), "Erro ao adionar pagamento", JOptionPane.ERROR_MESSAGE);
+		}
+		
 	}
 
 	private void extrato() {
