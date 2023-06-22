@@ -30,18 +30,17 @@ public class Conta implements IConta, Serializable {
 	
 	public StringBuilder listar() {
 		
-		StringBuilder sb = new StringBuilder();
+		StringBuilder listarItens = new StringBuilder();
 		
 		for (ItemConta itemConta : itens) {
-			sb.append(itemConta.getItem().getDescricao());
-			sb.append("; Valor: ");
-			sb.append(itemConta.getItem().getPreco());
-			sb.append("\n");
+			listarItens.append(itemConta.getItem().getDescricao());
+			listarItens.append("\tValor: R$");
+			listarItens.append(itemConta.getItem().getPreco());
+			listarItens.append("\n");
 		}
-		sb.append("Total: " + getTotal());
-		sb.append("\n");
+		listarItens.append("> SUBTOTAL: R$" + getTotal() + "\n");
 		
-		return sb;
+		return listarItens;
 	}
 
 }
