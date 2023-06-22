@@ -81,7 +81,7 @@ public class CatalogoController implements Serializable {
 		return lista;
 	}
 
-	public List<String> getItens(String nomeCategoria) {
+	public List<String> getItens(String nomeCategoria, ETipoItem tipo) {
 
 		Categoria categoria = categorias.get(nomeCategoria);
 		
@@ -91,5 +91,9 @@ public class CatalogoController implements Serializable {
 			lista.add(String.format("%d\t%s\t%.2f", item.getCodigo(), item.getDescricao(), item.getPreco()));
 
 		return lista;
+	}
+	
+	public Item getItem(long codigo) {
+		return itens.get(codigo);
 	}
 }

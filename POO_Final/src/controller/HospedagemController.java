@@ -134,4 +134,22 @@ public class HospedagemController implements Serializable {
 			throw new NumberFormatException("O numero escrito no campo valor e invalido.");
 		}		
 	}
+	
+	public void comprar(Hospedagem hospedagem, String codigoString, String qtd) throws NumberFormatException {
+		
+		long codigo = Long.parseLong(codigoString);
+		
+		try {
+			int quantidade = Integer.parseInt(qtd);
+			if(quantidade < 1) {
+				throw new NumberFormatException("");
+			}
+			
+			CatalogoController catalogoController = MainController.getCatalogoController();
+			hospedagem.getConta().addItem(catalogoController.getItem(codigo), quantidade);
+			
+		}catch(NumberFormatException e) {
+			throw new NumberFormatException("");
+		}		
+	}
 }
