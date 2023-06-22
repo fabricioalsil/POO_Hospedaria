@@ -155,7 +155,7 @@ public class Hospedagem implements Serializable{
 		extrato.append("PAGAMENTOS REALIZADOS: \n");
 		extrato.append(listarPagamentos()).append("\n");
 		
-		extrato.append(">>> TOTAL = R$" + saldoDevedor() + "\n");
+		extrato.append(">>>>> TOTAL = R$" + saldoDevedor() + "\n");
 				
 		return extrato.toString();
 	}
