@@ -22,7 +22,7 @@ public class Conta implements IConta, Serializable {
 		
 		double total = 0;
 		for (ItemConta itemConta : itens) {
-			total += itemConta.getPreco();
+			total += itemConta.getPreco()*itemConta.getQtde();
 		}
 		
 		return total;
@@ -34,8 +34,10 @@ public class Conta implements IConta, Serializable {
 		
 		for (ItemConta itemConta : itens) {
 			listarItens.append(itemConta.getItem().getDescricao());
+			listarItens.append("\tQtd: ");
+			listarItens.append(itemConta.getQtde());
 			listarItens.append("\tValor: R$");
-			listarItens.append(itemConta.getItem().getPreco());
+			listarItens.append(itemConta.getItem().getPreco()*itemConta.getQtde());
 			listarItens.append("\n");
 		}
 		listarItens.append("> SUBTOTAL: R$" + getTotal() + "\n");
