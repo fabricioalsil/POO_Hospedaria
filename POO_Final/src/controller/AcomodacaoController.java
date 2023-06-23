@@ -36,6 +36,7 @@ public class AcomodacaoController implements Serializable {
 				int ocupacaoMax = Integer.parseInt(ocupacaoMaxString);
 				Acomodacao newAcomodacao = new Acomodacao(numero, ocupacaoMax, EEstadoOcupacao.DISPONIVEL, tipo);
 				acomodacao.put(numero, newAcomodacao);
+				MainController.save();
 								
 			} catch (NumberFormatException e) {
 				throw new NumberFormatException("O numero de ocupacao maxima digitado nao e um numero valido.");
@@ -59,7 +60,7 @@ public class AcomodacaoController implements Serializable {
 	
 	public void addTipoAcomodacao(String nome, String tarifaDiariaString, String adicionalAcompanhanteString) throws NumberFormatException, Exception {
 		
-		if(tipoAcomodacao.get(nome) != null) {
+		if(tipoAcomodacao.get(nome) == null) {
 			
 			try {
 				double tarifaDiaria = Double.parseDouble(tarifaDiariaString);
