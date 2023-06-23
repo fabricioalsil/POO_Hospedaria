@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.UUID;
 
+import controller.MainController;
 import enums.EEstadoOcupacao;
 import enums.ETipoPagamento;
 import exception.EEstadoOcupacaoException;
@@ -174,6 +175,7 @@ public class Hospedagem implements Serializable{
 	public void checkout() {
 		setDataCheckout(Calendar.getInstance());
 		quarto.setEstadoOcupacao(EEstadoOcupacao.MANUTENCAO);
+		MainController.save();
 	}
 
 	//Métodos da classe

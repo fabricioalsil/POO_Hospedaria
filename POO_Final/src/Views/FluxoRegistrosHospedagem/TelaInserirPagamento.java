@@ -118,7 +118,7 @@ public class TelaInserirPagamento extends JFrame implements Serializable {
         this.getContentPane().add(lblNewLabel_2);
 
         txtR = new JTextField();
-        txtR.setText("0,00");
+        txtR.setText("0.00");
         txtR.setBounds(296, 167, 114, 19);
         this.getContentPane().add(txtR);
         txtR.setColumns(10);

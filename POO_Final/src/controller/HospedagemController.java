@@ -62,6 +62,8 @@ public class HospedagemController implements Serializable {
 				throw e;
 			}
 		}
+		
+		MainController.save();
 	}
 	
 	public Hospedagem getHospedagem(String numeroAcomodacaoString) throws NumberFormatException, NullPointerException {
@@ -134,6 +136,8 @@ public class HospedagemController implements Serializable {
 		}catch(NumberFormatException e) {
 			throw new NumberFormatException("O numero escrito no campo valor e invalido.");
 		}		
+		
+		MainController.save();
 	}
 	
 	public void comprar(Hospedagem hospedagem, String codigoString, String qtd) throws NumberFormatException {
@@ -152,5 +156,7 @@ public class HospedagemController implements Serializable {
 		}catch(NumberFormatException e) {
 			throw new NumberFormatException("");
 		}		
+		
+		MainController.save();
 	}
 }

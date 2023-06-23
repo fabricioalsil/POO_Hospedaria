@@ -85,7 +85,7 @@ public class TelaCadastroItem extends JFrame implements Serializable {
 		textField_1.setColumns(10);
 		
 		textField_2 = new JTextField();
-		textField_2.setText("0,00");
+		textField_2.setText("0.00");
 		textField_2.setBounds(171, 166, 96, 19);
 		this.getContentPane().add(textField_2);
 		textField_2.setColumns(10);

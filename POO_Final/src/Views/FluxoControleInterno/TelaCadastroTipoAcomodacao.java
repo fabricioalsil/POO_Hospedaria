@@ -86,7 +86,7 @@ public class TelaCadastroTipoAcomodacao extends JFrame implements Serializable {
 		this.getContentPane().add(lblNewLabel_2);
 		
 		textField_1 = new JTextField();
-		textField_1.setText("0,00");
+		textField_1.setText("0.00");
 		textField_1.setBounds(307, 46, 80, 19);
 		this.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
@@ -97,7 +97,7 @@ public class TelaCadastroTipoAcomodacao extends JFrame implements Serializable {
 		this.getContentPane().add(lblNewLabel_3);
 		
 		textField_2 = new JTextField();
-		textField_2.setText("0,00");
+		textField_2.setText("0.00");
 		textField_2.setBounds(186, 82, 96, 19);
 		this.getContentPane().add(textField_2);
 		textField_2.setColumns(10);
