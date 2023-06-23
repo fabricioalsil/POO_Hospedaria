@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 
+import enums.EEstadoOcupacao;
 import enums.ETipoPagamento;
 import exception.EEstadoOcupacaoException;
 import models.Acomodacao;
@@ -123,7 +124,12 @@ public class HospedagemController implements Serializable {
 		int numeroAcomodacao = Integer.parseInt(numeroQuarto);
 		
 		//Acessa a ultima posição do vetor hospedagem e a remove
+		Hospedagem quarto = hospedagem.get(numeroAcomodacao).get(hospedagem.get(numeroAcomodacao).size() -1);
 		hospedagem.get(numeroAcomodacao).remove(hospedagem.get(numeroAcomodacao).size() -1);
+		
+		quarto.getQuarto().setEstadoOcupacao(EEstadoOcupacao.DISPONIVEL);
+		MainController.save();
+		
 	}
 
 	public void addPagamento(Hospedagem quarto, String tipoPagamento, String valorString) throws NumberFormatException {
