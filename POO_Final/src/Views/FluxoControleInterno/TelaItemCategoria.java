@@ -46,9 +46,7 @@ public class TelaItemCategoria extends JFrame implements Serializable {
 		rdbtnNewRadioButton = new JRadioButton("Cadastrar Item");
 		rdbtnNewRadioButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(rdbtnNewRadioButton.isSelected()) {
-					rdbtnNewRadioButton_1.setSelected(false);
-				}
+				clearRadioButton(rdbtnNewRadioButton);
 			}
 		});
 		rdbtnNewRadioButton.setBounds(130, 84, 172, 21);
@@ -57,9 +55,7 @@ public class TelaItemCategoria extends JFrame implements Serializable {
 		rdbtnNewRadioButton_1 = new JRadioButton("Cadastrar Categoria");
 		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(rdbtnNewRadioButton_1.isSelected()) {
-					rdbtnNewRadioButton.setSelected(false);
-				}
+				clearRadioButton(rdbtnNewRadioButton_1);
 			}
 		});
 		rdbtnNewRadioButton_1.setBounds(130, 107, 172, 21);
@@ -93,6 +89,16 @@ public class TelaItemCategoria extends JFrame implements Serializable {
 			TelaCadastroCategoria telaCadastroCategoria = new TelaCadastroCategoria();
 			telaCadastroCategoria.setVisible(true);
 			dispose();
+		}
+	}
+	
+	private void clearRadioButton(JRadioButton button) {
+		if(button == rdbtnNewRadioButton) {
+			rdbtnNewRadioButton_1.setSelected(false);
+			
+		}else if(button == rdbtnNewRadioButton_1) {
+			rdbtnNewRadioButton.setSelected(false);
+			
 		}
 	}
 }

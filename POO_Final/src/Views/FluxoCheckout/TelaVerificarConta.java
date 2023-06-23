@@ -84,11 +84,7 @@ public class TelaVerificarConta extends JFrame implements Serializable {
         rdbtnNewRadioButton = new JRadioButton("PIX");
         rdbtnNewRadioButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (rdbtnNewRadioButton.isSelected() == true) {
-                    rdbtnNewRadioButton_1.setSelected(false);
-                    rdbtnNewRadioButton_2.setSelected(false);
-                    rdbtnNewRadioButton_3.setSelected(false);
-                }
+            	clearRadioButton(rdbtnNewRadioButton);
             }
         });
 
@@ -98,11 +94,7 @@ public class TelaVerificarConta extends JFrame implements Serializable {
         rdbtnNewRadioButton_1 = new JRadioButton("Crédito");
         rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (rdbtnNewRadioButton_1.isSelected() == true) {
-                    rdbtnNewRadioButton.setSelected(false);
-                    rdbtnNewRadioButton_2.setSelected(false);
-                    rdbtnNewRadioButton_3.setSelected(false);
-                }
+            	clearRadioButton(rdbtnNewRadioButton_1);
             }
         });
         rdbtnNewRadioButton_1.setBounds(260, 87, 103, 21);
@@ -111,11 +103,7 @@ public class TelaVerificarConta extends JFrame implements Serializable {
         rdbtnNewRadioButton_2 = new JRadioButton("Débito");
         rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (rdbtnNewRadioButton_2.isSelected() == true) {
-                    rdbtnNewRadioButton.setSelected(false);
-                    rdbtnNewRadioButton_1.setSelected(false);
-                    rdbtnNewRadioButton_3.setSelected(false);
-                }
+            	clearRadioButton(rdbtnNewRadioButton_2);
             }
         });
         rdbtnNewRadioButton_2.setBounds(260, 110, 103, 21);
@@ -124,11 +112,7 @@ public class TelaVerificarConta extends JFrame implements Serializable {
         rdbtnNewRadioButton_3 = new JRadioButton("Estorno");
         rdbtnNewRadioButton_3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (rdbtnNewRadioButton_3.isSelected() == true) {
-                    rdbtnNewRadioButton.setSelected(false);
-                    rdbtnNewRadioButton_1.setSelected(false);
-                    rdbtnNewRadioButton_2.setSelected(false);
-                }
+            	clearRadioButton(rdbtnNewRadioButton_3);
             }
         });
         rdbtnNewRadioButton_3.setBounds(260, 133, 103, 21);
@@ -203,4 +187,27 @@ public class TelaVerificarConta extends JFrame implements Serializable {
         textArea.append(controller.getExtrato(hospedagem));
 
     }
+    
+    private void clearRadioButton(JRadioButton button) {
+		if(button == rdbtnNewRadioButton) {
+			rdbtnNewRadioButton_1.setSelected(false);
+			rdbtnNewRadioButton_2.setSelected(false);
+			rdbtnNewRadioButton_3.setSelected(false);
+			
+		}else if(button == rdbtnNewRadioButton_1) {
+			rdbtnNewRadioButton.setSelected(false);
+			rdbtnNewRadioButton_2.setSelected(false);
+			rdbtnNewRadioButton_3.setSelected(false);
+			
+		}else if(button == rdbtnNewRadioButton_2) {
+			rdbtnNewRadioButton.setSelected(false);
+			rdbtnNewRadioButton_1.setSelected(false);
+			rdbtnNewRadioButton_3.setSelected(false);
+			
+		}else if(button ==rdbtnNewRadioButton_3) {
+			rdbtnNewRadioButton.setSelected(false);
+			rdbtnNewRadioButton_1.setSelected(false);
+			rdbtnNewRadioButton_2.setSelected(false);
+		}
+	}
 }

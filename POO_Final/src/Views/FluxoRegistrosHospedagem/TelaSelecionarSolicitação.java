@@ -43,9 +43,7 @@ public class TelaSelecionarSolicitação extends JFrame implements Serializable 
 		rdbtnNewRadioButton = new JRadioButton("Catálogo de Serviços/Produtos");
 		rdbtnNewRadioButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(rdbtnNewRadioButton.isSelected()) {
-					rdbtnNewRadioButton_1.setSelected(false);
-				}
+				clearRadioButton(rdbtnNewRadioButton);
 			}
 		});
 		rdbtnNewRadioButton.setBounds(132, 96, 206, 21);
@@ -54,9 +52,7 @@ public class TelaSelecionarSolicitação extends JFrame implements Serializable 
 		rdbtnNewRadioButton_1 = new JRadioButton("Realizar pagamento");
 		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(rdbtnNewRadioButton_1.isSelected()) {
-					rdbtnNewRadioButton.setSelected(false);
-				}
+				clearRadioButton(rdbtnNewRadioButton_1);
 			}
 		});
 		rdbtnNewRadioButton_1.setBounds(132, 119, 206, 21);
@@ -128,6 +124,15 @@ public class TelaSelecionarSolicitação extends JFrame implements Serializable 
 		} catch (NullPointerException e) {
 			JOptionPane.showMessageDialog(this, "Erro: " + e.getMessage(), "Erro na solitacao", JOptionPane.ERROR_MESSAGE);
 		}
-		
+	}
+	
+	private void clearRadioButton(JRadioButton button) {
+		if(button == rdbtnNewRadioButton) {
+			rdbtnNewRadioButton_1.setSelected(false);
+			
+		}else if(button == rdbtnNewRadioButton_1) {
+			rdbtnNewRadioButton.setSelected(false);
+			
+		}
 	}
 }

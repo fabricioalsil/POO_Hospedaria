@@ -57,9 +57,7 @@ public class TelaSelecionarCatalogo extends JFrame implements Serializable {
 		rdbtnNewRadioButton = new JRadioButton("Serviços");
 		rdbtnNewRadioButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(rdbtnNewRadioButton.isSelected()) {
-					rdbtnNewRadioButton_1.setSelected(false);
-				}
+				clearRadioButton(rdbtnNewRadioButton);
 			}
 		});
 		rdbtnNewRadioButton.setBounds(65, 71, 103, 21);
@@ -68,9 +66,7 @@ public class TelaSelecionarCatalogo extends JFrame implements Serializable {
 		rdbtnNewRadioButton_1 = new JRadioButton("Produtos");
 		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(rdbtnNewRadioButton_1.isSelected()) {
-					rdbtnNewRadioButton.setSelected(false);
-				}
+				clearRadioButton(rdbtnNewRadioButton_1);
 			}
 		});
 		rdbtnNewRadioButton_1.setBounds(171, 71, 103, 21);
@@ -179,6 +175,16 @@ public class TelaSelecionarCatalogo extends JFrame implements Serializable {
 			for (String[] linha : controller.getItens((String) comboBox.getSelectedItem(), ETipoItem.PRODUTO)) {
 	        	tableModel.addRow(linha);
 			}
+		}
+	}
+	
+	private void clearRadioButton(JRadioButton button) {
+		if(button == rdbtnNewRadioButton) {
+			rdbtnNewRadioButton_1.setSelected(false);
+			
+		}else if(button == rdbtnNewRadioButton_1) {
+			rdbtnNewRadioButton.setSelected(false);
+						
 		}
 	}
 }

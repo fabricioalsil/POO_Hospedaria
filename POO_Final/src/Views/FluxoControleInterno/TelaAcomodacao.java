@@ -47,10 +47,7 @@ public class TelaAcomodacao extends JFrame implements Serializable  {
 		rdbtnNewRadioButton = new JRadioButton("Cadastrar Acomodação");
 		rdbtnNewRadioButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(rdbtnNewRadioButton.isSelected()) {
-					rdbtnNewRadioButton_1.setSelected(false);
-					rdbtnNewRadioButton_2.setSelected(false);
-				}
+				clearRadioButton(rdbtnNewRadioButton);
 			}
 		});
 		rdbtnNewRadioButton.setBounds(130, 84, 172, 21);
@@ -59,10 +56,7 @@ public class TelaAcomodacao extends JFrame implements Serializable  {
 		rdbtnNewRadioButton_1 = new JRadioButton("Cadastrar Tipo de Acomodação");
 		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(rdbtnNewRadioButton_1.isSelected()) {
-					rdbtnNewRadioButton.setSelected(false);
-					rdbtnNewRadioButton_2.setSelected(false);
-				}
+				clearRadioButton(rdbtnNewRadioButton_1);
 			}
 		});
 		rdbtnNewRadioButton_1.setBounds(130, 107, 172, 21);
@@ -84,10 +78,7 @@ public class TelaAcomodacao extends JFrame implements Serializable  {
 		rdbtnNewRadioButton_2 = new JRadioButton("Manutenção da Acomodação");
 		rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(rdbtnNewRadioButton_2.isSelected()) {
-					rdbtnNewRadioButton.setSelected(false);
-					rdbtnNewRadioButton_1.setSelected(false);
-				}
+				clearRadioButton(rdbtnNewRadioButton_2);
 			}
 		});
 		rdbtnNewRadioButton_2.setBounds(130, 130, 172, 21);
@@ -110,5 +101,21 @@ public class TelaAcomodacao extends JFrame implements Serializable  {
 			dispose();
 		}
 		
+	}
+	
+	private void clearRadioButton(JRadioButton button) {
+		if(button == rdbtnNewRadioButton) {
+			rdbtnNewRadioButton_1.setSelected(false);
+			rdbtnNewRadioButton_2.setSelected(false);
+			
+		}else if(button == rdbtnNewRadioButton_1) {
+			rdbtnNewRadioButton.setSelected(false);
+			rdbtnNewRadioButton_2.setSelected(false);
+			
+		}else if(button == rdbtnNewRadioButton_2) {
+			rdbtnNewRadioButton.setSelected(false);
+			rdbtnNewRadioButton_1.setSelected(false);
+			
+		}
 	}
 }

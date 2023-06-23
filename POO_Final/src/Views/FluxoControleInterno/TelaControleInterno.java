@@ -46,9 +46,7 @@ public class TelaControleInterno extends JFrame implements Serializable {
 		rdbtnNewRadioButton = new JRadioButton("Catálogo");
 		rdbtnNewRadioButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(rdbtnNewRadioButton.isSelected()) {
-					rdbtnNewRadioButton_1.setSelected(false);
-				}
+				clearRadioButton(rdbtnNewRadioButton);
 			}
 		});
 		rdbtnNewRadioButton.setBounds(130, 84, 103, 21);
@@ -57,9 +55,7 @@ public class TelaControleInterno extends JFrame implements Serializable {
 		rdbtnNewRadioButton_1 = new JRadioButton("Acomodações");
 		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(rdbtnNewRadioButton_1.isSelected()) {
-					rdbtnNewRadioButton.setSelected(false);
-				}
+				clearRadioButton(rdbtnNewRadioButton_1);
 			}
 		});
 		rdbtnNewRadioButton_1.setBounds(130, 107, 103, 21);
@@ -95,6 +91,16 @@ public class TelaControleInterno extends JFrame implements Serializable {
 			TelaAcomodacao telaAcomodacao = new TelaAcomodacao();
 			telaAcomodacao.setVisible(true);
 			dispose();
+		}
+	}
+	
+	private void clearRadioButton(JRadioButton button) {
+		if(button == rdbtnNewRadioButton) {
+			rdbtnNewRadioButton_1.setSelected(false);
+			
+		}else if(button == rdbtnNewRadioButton_1) {
+			rdbtnNewRadioButton.setSelected(false);
+			
 		}
 	}
 	

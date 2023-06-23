@@ -38,11 +38,7 @@ public class TelaPrincipal extends JFrame implements Serializable {
 		rdbtnNewRadioButton = new JRadioButton("Check-in");
 		rdbtnNewRadioButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(rdbtnNewRadioButton.isSelected()) {
-					rdbtnNewRadioButton_1.setSelected(false);
-					rdbtnNewRadioButton_2.setSelected(false);
-					rdbtnNewRadioButton_3.setSelected(false);
-				}
+				clearRadioButton(rdbtnNewRadioButton);
 			}
 		});
 		rdbtnNewRadioButton.setBounds(136, 76, 180, 21);
@@ -51,11 +47,7 @@ public class TelaPrincipal extends JFrame implements Serializable {
 		rdbtnNewRadioButton_1 = new JRadioButton("Checkout");
 		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(rdbtnNewRadioButton_1.isSelected()) {
-					rdbtnNewRadioButton.setSelected(false);
-					rdbtnNewRadioButton_2.setSelected(false);
-					rdbtnNewRadioButton_3.setSelected(false);
-				}
+				clearRadioButton(rdbtnNewRadioButton_1);
 			}
 		});
 		rdbtnNewRadioButton_1.setBounds(136, 99, 180, 21);
@@ -64,11 +56,7 @@ public class TelaPrincipal extends JFrame implements Serializable {
 		rdbtnNewRadioButton_2 = new JRadioButton("Registros Hospedagem");
 		rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(rdbtnNewRadioButton_2.isSelected()) {
-					rdbtnNewRadioButton.setSelected(false);
-					rdbtnNewRadioButton_1.setSelected(false);
-					rdbtnNewRadioButton_3.setSelected(false);
-				}
+				clearRadioButton(rdbtnNewRadioButton_2);
 			}
 		});
 		rdbtnNewRadioButton_2.setBounds(136, 122, 180, 21);
@@ -77,11 +65,7 @@ public class TelaPrincipal extends JFrame implements Serializable {
 		rdbtnNewRadioButton_3 = new JRadioButton("Controle Interno");
 		rdbtnNewRadioButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(rdbtnNewRadioButton_3.isSelected()) {
-					rdbtnNewRadioButton.setSelected(false);
-					rdbtnNewRadioButton_1.setSelected(false);
-					rdbtnNewRadioButton_2.setSelected(false);
-				}
+				clearRadioButton(rdbtnNewRadioButton_3);
 			}
 		});
 		rdbtnNewRadioButton_3.setBounds(136, 145, 180, 21);
@@ -122,6 +106,29 @@ public class TelaPrincipal extends JFrame implements Serializable {
 			TelaControleInterno telaControleInterno = new TelaControleInterno();
 			telaControleInterno.setVisible(true);
 		
+		}
+	}
+	
+	private void clearRadioButton(JRadioButton button) {
+		if(button == rdbtnNewRadioButton) {
+			rdbtnNewRadioButton_1.setSelected(false);
+			rdbtnNewRadioButton_2.setSelected(false);
+			rdbtnNewRadioButton_3.setSelected(false);
+			
+		}else if(button == rdbtnNewRadioButton_1) {
+			rdbtnNewRadioButton.setSelected(false);
+			rdbtnNewRadioButton_2.setSelected(false);
+			rdbtnNewRadioButton_3.setSelected(false);
+			
+		}else if(button == rdbtnNewRadioButton_2) {
+			rdbtnNewRadioButton.setSelected(false);
+			rdbtnNewRadioButton_1.setSelected(false);
+			rdbtnNewRadioButton_3.setSelected(false);
+			
+		}else if(button ==rdbtnNewRadioButton_3) {
+			rdbtnNewRadioButton.setSelected(false);
+			rdbtnNewRadioButton_1.setSelected(false);
+			rdbtnNewRadioButton_2.setSelected(false);
 		}
 	}
 	

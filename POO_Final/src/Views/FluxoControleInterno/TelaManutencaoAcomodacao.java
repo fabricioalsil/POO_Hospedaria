@@ -59,9 +59,7 @@ public class TelaManutencaoAcomodacao extends JFrame implements Serializable {
 		rdbtnNewRadioButton = new JRadioButton("Manutenção");
 		rdbtnNewRadioButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(rdbtnNewRadioButton.isSelected()) {
-					rdbtnNewRadioButton_1.setSelected(false);
-				}
+				clearRadioButton(rdbtnNewRadioButton);
 			}
 		});
 		rdbtnNewRadioButton.setBounds(193, 109, 103, 21);
@@ -70,9 +68,7 @@ public class TelaManutencaoAcomodacao extends JFrame implements Serializable {
 		rdbtnNewRadioButton_1 = new JRadioButton("Disponível");
 		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(rdbtnNewRadioButton_1.isSelected()) {
-					rdbtnNewRadioButton.setSelected(false);
-				}
+				clearRadioButton(rdbtnNewRadioButton_1);
 			}
 		});
 		rdbtnNewRadioButton_1.setBounds(193, 132, 103, 21);
@@ -117,6 +113,16 @@ public class TelaManutencaoAcomodacao extends JFrame implements Serializable {
 			JOptionPane.showMessageDialog(this, "Erro: " + e.getMessage(), "Erro ao encontra quarto", JOptionPane.ERROR_MESSAGE);
 		} catch (EEstadoOcupacaoException e) {
 			JOptionPane.showMessageDialog(this, "Erro: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
+	private void clearRadioButton(JRadioButton button) {
+		if(button == rdbtnNewRadioButton) {
+			rdbtnNewRadioButton_1.setSelected(false);
+			
+		}else if(button == rdbtnNewRadioButton_1) {
+			rdbtnNewRadioButton.setSelected(false);
+			
 		}
 	}
 }
