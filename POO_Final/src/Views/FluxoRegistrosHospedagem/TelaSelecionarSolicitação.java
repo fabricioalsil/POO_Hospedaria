@@ -105,7 +105,7 @@ public class TelaSelecionarSolicitação extends JFrame implements Serializable 
 		HospedagemController controller = MainController.getHospedagemController();
 		
 		try {
-			String numeroAcomodacao = txtInsiraApenasNmeros.getSelectedText();
+			String numeroAcomodacao = txtInsiraApenasNmeros.getText();
 			Hospedagem hospedagem = controller.getHospedagem(numeroAcomodacao);
 			if(hospedagem == null) {
 				JOptionPane.showMessageDialog(this, "Erro: O quarto nao existe ou nao ha hospedes no momento" , "Erro na solitacao", JOptionPane.ERROR_MESSAGE);
