@@ -94,6 +94,10 @@ public class Hospedagem implements Serializable{
 		
 		numDiarias = dia - getDataCheckin().get(Calendar.DAY_OF_YEAR);
 		
+		if(getDataCheckin().get(Calendar.HOUR_OF_DAY) <= getIniciocheckin()) {
+			++numDiarias;
+		}
+		
 		if(hora > getLimitecheckout()) {
 			++numDiarias;
 		}
