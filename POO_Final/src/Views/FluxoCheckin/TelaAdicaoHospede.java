@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 
 import controller.HospedagemController;
 import controller.MainController;
+import exception.EEstadoOcupacaoException;
 import models.Hospede;
 
 public class TelaAdicaoHospede extends JFrame implements Serializable {
@@ -139,6 +140,8 @@ public class TelaAdicaoHospede extends JFrame implements Serializable {
 			}
 			
 		}catch(NumberFormatException e) {
+			JOptionPane.showMessageDialog(frame, "Erro: " + e.getMessage() , "Erro ", JOptionPane.ERROR_MESSAGE);
+		}catch(EEstadoOcupacaoException e) {
 			JOptionPane.showMessageDialog(frame, "Erro: " + e.getMessage() , "Erro ", JOptionPane.ERROR_MESSAGE);
 		}
 

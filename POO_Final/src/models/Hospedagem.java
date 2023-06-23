@@ -7,6 +7,7 @@ import java.util.UUID;
 
 import enums.EEstadoOcupacao;
 import enums.ETipoPagamento;
+import exception.EEstadoOcupacaoException;
 import interfaces.IAcomodacao;
 import interfaces.IConta;
 import interfaces.IHospede;
@@ -29,7 +30,11 @@ public class Hospedagem implements Serializable{
 	private final IConta conta;
 	private ArrayList<Pagamento> pagamento = new ArrayList<>();
 	
-	public Hospedagem(IHospede hospede, IAcomodacao quarto) {
+	public Hospedagem(IHospede hospede, IAcomodacao quarto) throws EEstadoOcupacaoException {
+		if(quarto.getEstadoOcupacao() != EEstadoOcupacao.DISPONIVEL) {
+			throw new EEstadoOcupacaoException("Este quarto esta indisponivel no momento"); 
+		}
+		quarto.setEstadoOcupacao(EEstadoOcupacao.OCUPADO);
 		this.id = UUID.randomUUID().toString();
 		this.dataCheckin = Calendar.getInstance();
 		this.hospede = hospede;

@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 
 import controller.AcomodacaoController;
 import controller.MainController;
-import models.Acomodacao;
+import exception.EEstadoOcupacaoException;
 
 public class TelaManutencaoAcomodacao extends JFrame implements Serializable {
 
@@ -115,6 +115,8 @@ public class TelaManutencaoAcomodacao extends JFrame implements Serializable {
 			
 		} catch (NumberFormatException e) {
 			JOptionPane.showMessageDialog(this, "Erro: " + e.getMessage(), "Erro ao encontra quarto", JOptionPane.ERROR_MESSAGE);
+		} catch (EEstadoOcupacaoException e) {
+			JOptionPane.showMessageDialog(this, "Erro: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 }

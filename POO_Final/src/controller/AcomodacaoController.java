@@ -10,6 +10,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import enums.EEstadoOcupacao;
+import exception.EEstadoOcupacaoException;
 import models.Acomodacao;
 import models.TipoAcomodacao;
 
@@ -117,7 +118,11 @@ public class AcomodacaoController implements Serializable {
 		}
 	}
 	
-	public void setStatus(String numeroString, boolean b) throws NumberFormatException {
+	public void setStatus(String numeroString, boolean b) throws NumberFormatException, EEstadoOcupacaoException {
+		
+		if(getAcomodacao(numeroString).getEstadoOcupacao() == EEstadoOcupacao.OCUPADO) {
+			throw new EEstadoOcupacaoException("O quarto esta ocupado no momento");
+		}
 		
 		try {
 			if(b == true){

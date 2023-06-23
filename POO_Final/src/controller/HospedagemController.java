@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 
-import enums.EEstadoOcupacao;
 import enums.ETipoPagamento;
+import exception.EEstadoOcupacaoException;
 import models.Acomodacao;
 import models.Hospedagem;
 import models.Hospede;
@@ -23,7 +23,7 @@ public class HospedagemController implements Serializable {
 		hospedes = new TreeMap<>();
 	}
 	
-	public void addHospedagem(String numeroAcomodacaoString, String cpfString, String nome, String telefoneString, String email, boolean primeiroHospede) throws NumberFormatException, NullPointerException {
+	public void addHospedagem(String numeroAcomodacaoString, String cpfString, String nome, String telefoneString, String email, boolean primeiroHospede) throws NumberFormatException, NullPointerException, EEstadoOcupacaoException {
 		
 		int numeroAcomodacao = Integer.parseInt(numeroAcomodacaoString);
 		
@@ -42,9 +42,10 @@ public class HospedagemController implements Serializable {
 					}else {
 						hospedagem.get(numeroAcomodacao).add(newHospedagem);
 					}
-					quarto.setEstadoOcupacao(EEstadoOcupacao.OCUPADO);
 										
 				} catch (NumberFormatException e) {
+					throw e;
+				} catch (EEstadoOcupacaoException e) {
 					throw e;
 				}
 			} catch (NumberFormatException e) {
