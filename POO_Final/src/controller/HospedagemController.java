@@ -23,7 +23,7 @@ public class HospedagemController implements Serializable {
 		hospedes = new TreeMap<>();
 	}
 	
-	public void addHospedagem(String numeroAcomodacaoString, String cpfString, String nome, String email, String telefoneString, boolean primeiroHospede) throws NumberFormatException, NullPointerException {
+	public void addHospedagem(String numeroAcomodacaoString, String cpfString, String nome, String telefoneString, String email, boolean primeiroHospede) throws NumberFormatException, NullPointerException {
 		
 		int numeroAcomodacao = Integer.parseInt(numeroAcomodacaoString);
 		
