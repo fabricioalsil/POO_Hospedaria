@@ -111,7 +111,7 @@ public class TelaCadastroAcomodacao extends JFrame implements Serializable {
 		AcomodacaoController controller = MainController.getAcomodacaoController();
 		
 		String numero = txtInsiraApenasNmeros.getText();
-		String ocupacao = txtInsiraApenasNmeros.getText();
+		String ocupacao = txtInsiraApenasNmeros_1.getText();
 		String tipo = (String) comboBox.getSelectedItem();
 		
 		try {
