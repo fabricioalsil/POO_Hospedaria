@@ -9,8 +9,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import Views.FluxoRegistrosHospedagem.TelaInserirPagamento;
-import Views.FluxoRegistrosHospedagem.TelaSelecionarCatalogo;
 import controller.HospedagemController;
 import controller.MainController;
 import models.Hospedagem;
