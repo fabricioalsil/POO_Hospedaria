@@ -79,7 +79,7 @@ public class TelaSelecionarAcomodacaoCheckout extends JFrame implements Serializ
 		HospedagemController controller = MainController.getHospedagemController();
 			
 		try {
-			String numeroAcomodacao = txtInsiraApenasNmeros.getSelectedText();
+			String numeroAcomodacao = txtInsiraApenasNmeros.getText();
 			Hospedagem hospedagem = controller.getHospedagem(numeroAcomodacao);
 			TelaVerificarConta telaVerificarConta = new TelaVerificarConta(hospedagem);
 			telaVerificarConta.setVisible(true);			

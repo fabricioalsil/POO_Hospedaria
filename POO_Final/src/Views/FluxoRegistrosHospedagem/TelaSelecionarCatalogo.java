@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
 
 import controller.CatalogoController;
 import controller.HospedagemController;
@@ -23,6 +24,7 @@ import controller.MainController;
 import enums.ETipoItem;
 import models.Hospedagem;
 import javax.swing.JTextField;
+import javax.swing.JTable;
 
 public class TelaSelecionarCatalogo extends JFrame implements Serializable {
 
@@ -32,10 +34,10 @@ public class TelaSelecionarCatalogo extends JFrame implements Serializable {
 	private JRadioButton rdbtnNewRadioButton_1;
 	private JComboBox<String> comboBox;
 	private JFrame frame;
-	private JList<String> list;
-	DefaultListModel<String> listModel;
 	private JTextField textField;
 	private JLabel lblNewLabel_2;
+	private JTable table;
+	private DefaultTableModel tableModel;
 
 	/**
 	 * Create the application.
@@ -109,13 +111,7 @@ public class TelaSelecionarCatalogo extends JFrame implements Serializable {
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblNewLabel_1.setBounds(65, 43, 164, 22);
 		this.getContentPane().add(lblNewLabel_1);
-				
-		listModel = new DefaultListModel<>();
-		list = new JList<>(listModel);
-		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		list.setBounds(65, 133, 310, 67);
-		getContentPane().add(new JScrollPane(list));
-				
+						
 		textField = new JTextField();
 		textField.setText("1");
 		textField.setBounds(269, 203, 83, 19);
@@ -125,15 +121,27 @@ public class TelaSelecionarCatalogo extends JFrame implements Serializable {
 		lblNewLabel_2 = new JLabel("Quantidade:");
 		lblNewLabel_2.setBounds(157, 206, 94, 13);
 		getContentPane().add(lblNewLabel_2);
-			
+		
+		table = new JTable();
+		tableModel = new DefaultTableModel();
+		String[] colunas = {"Codigo", "Descricao", "Preco"};
+
+        for (String coluna : colunas) {
+        	tableModel.addColumn(coluna);
+        }
+		
+		table.setModel(tableModel);
+		table.setBounds(65, 102, 300, 86);
+		getContentPane().add(table);
+		
 		initComboBox();
 	}
 	
 	private void actionContinuar() {
 		HospedagemController controller = MainController.getHospedagemController();
 		try {
-			String[] item =	list.getSelectedValue().split("\t");
-			controller.comprar(hospedagem, item[0], textField.getText());
+			String item = String.valueOf(table.getValueAt(table.getSelectedRow(), 0));
+			controller.comprar(hospedagem, item, textField.getText());
 			JOptionPane.showMessageDialog(frame, "Item adicionado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 			
 		}catch(NumberFormatException e) {
@@ -151,6 +159,8 @@ public class TelaSelecionarCatalogo extends JFrame implements Serializable {
 			comboBox = new JComboBox<String>(new Vector<String>(controller.getCategorias()));
 			comboBox.setBounds(190, 44, 175, 21);
 			getContentPane().add(comboBox);
+			
+			
 						
 		}catch(NullPointerException e) {
 			JOptionPane.showMessageDialog(frame, "Erro: E necessário cadastrar uma categoria primeiro", "Erro ao cadastrar", JOptionPane.ERROR_MESSAGE);
@@ -160,15 +170,19 @@ public class TelaSelecionarCatalogo extends JFrame implements Serializable {
 	
 	private void actionOK() {
 		CatalogoController controller = MainController.getCatalogoController();
-		listModel.clear();
+
+		while (tableModel.getRowCount() > 0) {
+			tableModel.removeRow(0);
+        }
 		
 		if(rdbtnNewRadioButton.isSelected()) {
-			rdbtnNewRadioButton.getText();
-			listModel.addAll(controller.getItens((String) comboBox.getSelectedItem(), ETipoItem.SERVICO));
-			
+			for (String[] linha : controller.getItens((String) comboBox.getSelectedItem(), ETipoItem.SERVICO)) {
+	        	tableModel.addRow(linha);
+			}
 		}else if(rdbtnNewRadioButton_1.isSelected()) {
-			rdbtnNewRadioButton_1.getText();
-			listModel.addAll(controller.getItens((String) comboBox.getSelectedItem(), ETipoItem.PRODUTO));
+			for (String[] linha : controller.getItens((String) comboBox.getSelectedItem(), ETipoItem.PRODUTO)) {
+	        	tableModel.addRow(linha);
+			}
 		}
 	}
 }

@@ -81,16 +81,23 @@ public class CatalogoController implements Serializable {
 		return lista;
 	}
 
-	public List<String> getItens(String nomeCategoria, ETipoItem tipo) {
+	public String[][] getItens(String nomeCategoria, ETipoItem tipo) {
 
 		Categoria categoria = categorias.get(nomeCategoria);
 		
-		List<String> lista = new ArrayList<>();
+		List<String[]> linhaElementos = new ArrayList<>();
 
-		for (Item item : categoria.getItens())
-			lista.add(String.format("%d\t%s\t%.2f", item.getCodigo(), item.getDescricao(), item.getPreco()));
+		for (Item item : categoria.getItens()) {
+			if(item.getTipo() == tipo) {
+				String[] linha = {String.valueOf(item.getCodigo()), String.valueOf(item.getDescricao()), String.valueOf(item.getPreco())};
+				linhaElementos.add(linha);
+			}
+		}
 
-		return lista;
+		String[][] matrizElementos = new String[linhaElementos.size()][];
+		linhaElementos.toArray(matrizElementos);
+					
+		return matrizElementos;
 	}
 	
 	public Item getItem(long codigo) {
