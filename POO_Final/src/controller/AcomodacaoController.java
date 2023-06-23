@@ -79,6 +79,7 @@ public class AcomodacaoController implements Serializable {
 					
 					TipoAcomodacao newTipoAcomodacao = new TipoAcomodacao(nome, tarifaDiariaFormatado, adicionalAcompanhanteFormatado);
 					tipoAcomodacao.put(nome, newTipoAcomodacao);
+					MainController.save();	
 									
 				} catch (NumberFormatException e) {
 					throw new NumberFormatException("O valor de adicional por acompanhante digitado nao e um numero valido.");
@@ -86,8 +87,6 @@ public class AcomodacaoController implements Serializable {
 			} catch (NumberFormatException e) {
 				throw new NumberFormatException("O valor da diaria digitado nao e um numero valido.");
 			}
-			
-			MainController.save();			
 		}	
 	}
 	

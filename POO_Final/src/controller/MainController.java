@@ -23,8 +23,11 @@ public class MainController implements Serializable {
 	}
 	
 	public static MainController getInstance() {
-		return instance;
-	}
+        if (instance == null) {
+            load();
+        }
+        return instance;
+    }
 	
 	public static void load() {
 

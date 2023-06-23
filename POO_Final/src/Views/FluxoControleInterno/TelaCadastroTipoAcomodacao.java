@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -132,11 +133,20 @@ public class TelaCadastroTipoAcomodacao extends JFrame implements Serializable {
 	}
 
 	private void actionListar() {
-		AcomodacaoController controller = MainController.getAcomodacaoController();
+	    AcomodacaoController controller = MainController.getAcomodacaoController();
 
-		textArea.setText(null);
-		for (String nomeTipo : controller.getTipoAcomodacao()) {
-			textArea.append(String.format("%s\n", nomeTipo));
-		}
+	    textArea.setText(null);
+	    try {
+	        Set<String> tipoAcomodacaoSet = controller.getTipoAcomodacao();
+	        if (tipoAcomodacaoSet.isEmpty()) {
+	            textArea.append("Nenhum tipo de acomodação cadastrado.");
+	        } else {
+	            for (String nomeTipo : tipoAcomodacaoSet) {
+	                textArea.append(String.format("%s\n", nomeTipo));
+	            }
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
 	}
 }
