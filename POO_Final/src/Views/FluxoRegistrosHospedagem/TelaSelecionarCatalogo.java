@@ -34,7 +34,6 @@ public class TelaSelecionarCatalogo extends JFrame implements Serializable {
 	private JFrame frame;
 	private JList<String> list;
 	DefaultListModel<String> listModel;
-	private String selecionado;
 	private JTextField textField;
 	private JLabel lblNewLabel_2;
 
@@ -46,9 +45,6 @@ public class TelaSelecionarCatalogo extends JFrame implements Serializable {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = this;
 		this.setBounds(100, 100, 450, 300);
@@ -113,13 +109,13 @@ public class TelaSelecionarCatalogo extends JFrame implements Serializable {
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblNewLabel_1.setBounds(65, 43, 164, 22);
 		this.getContentPane().add(lblNewLabel_1);
-		
+				
 		listModel = new DefaultListModel<>();
 		list = new JList<>(listModel);
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		list.setBounds(65, 133, 310, 67);
 		getContentPane().add(new JScrollPane(list));
-		
+				
 		textField = new JTextField();
 		textField.setText("1");
 		textField.setBounds(269, 203, 83, 19);
@@ -167,11 +163,11 @@ public class TelaSelecionarCatalogo extends JFrame implements Serializable {
 		listModel.clear();
 		
 		if(rdbtnNewRadioButton.isSelected()) {
-			selecionado = rdbtnNewRadioButton.getText();
+			rdbtnNewRadioButton.getText();
 			listModel.addAll(controller.getItens((String) comboBox.getSelectedItem(), ETipoItem.SERVICO));
 			
 		}else if(rdbtnNewRadioButton_1.isSelected()) {
-			selecionado = rdbtnNewRadioButton_1.getText();
+			rdbtnNewRadioButton_1.getText();
 			listModel.addAll(controller.getItens((String) comboBox.getSelectedItem(), ETipoItem.PRODUTO));
 		}
 	}
