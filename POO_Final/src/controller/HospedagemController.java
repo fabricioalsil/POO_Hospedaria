@@ -25,44 +25,53 @@ public class HospedagemController implements Serializable {
 	}
 	
 	public void addHospedagem(String numeroAcomodacaoString, String cpfString, String nome, String telefoneString, String email, boolean primeiroHospede) throws NumberFormatException, NullPointerException, EEstadoOcupacaoException {
-		
-		int numeroAcomodacao = Integer.parseInt(numeroAcomodacaoString);
-		
-		if(primeiroHospede == true) {	
-			try {
-				Acomodacao quarto = MainController.getAcomodacaoController().getAcomodacao(numeroAcomodacaoString);
 				
-				try {
-					Hospede newHospede = addHospede(cpfString, nome, email, telefoneString);
-					Hospedagem newHospedagem = new Hospedagem(newHospede, quarto);
-					if(hospedagem.get(numeroAcomodacao) == null) {
-						ArrayList<Hospedagem> lista = new ArrayList<Hospedagem>();
-						lista.add(newHospedagem);
-						hospedagem.put(numeroAcomodacao, lista);
-						
-					}else {
-						hospedagem.get(numeroAcomodacao).add(newHospedagem);
-					}
-										
-				} catch (NumberFormatException e) {
-					throw e;
-				} catch (EEstadoOcupacaoException e) {
-					throw e;
-				}
-			} catch (NumberFormatException e) {
-				throw new NumberFormatException("Confira os campos preenchidos e tente novamente");
-			}
-		}else {
-			try {
-				Hospede acompanhante = addHospede(cpfString, nome, email, telefoneString);		
-				
-				//Pede ao Map hospedagem, o Array de hospedagens do quarto com numero numeroAcomodacao
-				//Acessa e adiciona o acompanhante na ultima posição
-				hospedagem.get(numeroAcomodacao).get(hospedagem.get(numeroAcomodacao).size() -1).addAcompanhantes(acompanhante);
-			} catch (NumberFormatException e) {
-				throw e;
-			}
-		}
+		if(primeiroHospede == true) {
+			
+	        try {
+	            int numeroAcomodacao = Integer.parseInt(numeroAcomodacaoString);
+	            
+	            if (numeroAcomodacao <= 0) {
+	                throw new NumberFormatException("O número de acomodação deve ser um valor positivo.");
+	            }
+	            
+	            Acomodacao quarto = MainController.getAcomodacaoController().getAcomodacao(numeroAcomodacaoString);
+	            Hospede newHospede = addHospede(cpfString, nome, email, telefoneString);
+	            Hospedagem newHospedagem = new Hospedagem(newHospede, quarto);
+	            
+	            if (hospedagem.get(numeroAcomodacao) == null) {
+	                ArrayList<Hospedagem> lista = new ArrayList<Hospedagem>();
+	                lista.add(newHospedagem);
+	                hospedagem.put(numeroAcomodacao, lista);
+	            } else {
+	                hospedagem.get(numeroAcomodacao).add(newHospedagem);
+	            }
+	        } catch (NumberFormatException e) {
+	            throw new NumberFormatException("Confira os campos preenchidos e tente novamente.");
+	        } catch (EEstadoOcupacaoException e) {
+	            throw e;
+	        }
+
+		} else {
+	        try {
+	            int numeroAcomodacao = Integer.parseInt(numeroAcomodacaoString);
+	            
+	            if (numeroAcomodacao <= 0) {
+	                throw new NumberFormatException("O número de acomodação deve ser um valor positivo.");
+	            }
+	            
+	            Hospede acompanhante = addHospede(cpfString, nome, email, telefoneString);		
+	            
+	            ArrayList<Hospedagem> listaHospedagens = hospedagem.get(numeroAcomodacao);
+	            if (listaHospedagens != null && !listaHospedagens.isEmpty()) {
+	                listaHospedagens.get(listaHospedagens.size() - 1).addAcompanhantes(acompanhante);
+	            } else {
+	                throw new NullPointerException("Não há hospedagens para o número de acomodação fornecido.");
+	            }
+	        } catch (NumberFormatException e) {
+	            throw new NumberFormatException("Confira os campos preenchidos e tente novamente.");
+	        }
+	    }
 		
 		MainController.save();
 	}
